@@ -11,15 +11,15 @@
 <?import javafx.scene.text.TextFlow?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<VBox alignment="CENTER" prefHeight="600.0" prefWidth="500.0" spacing="20.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jociel.estoque.LoginController">
+<VBox alignment="CENTER" prefHeight="450.0" prefWidth="700.0" spacing="20.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jociel.estoque.LoginController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-   <FontIcon iconLiteral="mdi2a-account-credit-card-outline" iconSize="50" />
+   <FontIcon iconColor="#213a40" iconLiteral="mdi2a-account-credit-card-outline" iconSize="50" />
 
-    <Label fx:id="textoNaTela" text="Acesse Sua Conta">
+    <Label fx:id="textoNaTela" text="Sistema de Estoque " textFill="#213a40">
       <font>
-         <Font name="Comic Sans MS Bold Italic" size="24.0" />
+         <Font name="Segoe UI Semibold Italic" size="24.0" />
       </font>
       <VBox.margin>
          <Insets bottom="30.0" />
@@ -49,14 +49,14 @@
          <Insets top="10.0" />
       </padding>
    </TextFlow>
-    <Button fx:id="btnAcessar" cache="true" onAction="#aoApertarBotao" prefHeight="44.0" prefWidth="349.0" style="-fx-background-radius: 10;" text="Acessar" VBox.vgrow="ALWAYS">
+    <Button fx:id="btnAcessar" cache="true" onAction="#aoApertarBotao" prefHeight="44.0" prefWidth="349.0" style="-fx-background-radius: 10; -fx-background-color: #213A40;" text="Acessar" textFill="WHITE" VBox.vgrow="ALWAYS">
       <font>
-         <Font name="Comic Sans MS" size="20.0" />
+         <Font name="Segoe UI" size="20.0" />
       </font>
       <VBox.margin>
          <Insets top="-20.0" />
       </VBox.margin></Button>
-   <Label fx:id="recuperaSenha" onMouseClicked="#aoEsquecerSenha" text="Esqueceu sua senha. Recupere aqui!" textFill="#2f5ef8" underline="true">
+   <Label fx:id="recuperaSenha" onMouseClicked="#aoEsquecerSenha" text="Esqueceu sua senha. Recupere aqui!" textFill="#213a40" underline="true">
       <font>
          <Font name="Comic Sans MS Italic" size="14.0" />
       </font>
