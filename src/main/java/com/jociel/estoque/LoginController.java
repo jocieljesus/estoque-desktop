@@ -29,7 +29,7 @@ public class LoginController {
     protected void aoApertarBotao(ActionEvent event) throws IOException {
 
         if ( usuarioCadastrado.equalsIgnoreCase(usuario.getText()) && senhaCadastrada.equals(senha.getText())){
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("home.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("menu.fxml"));
             Scene scene = new Scene(loader.load());
             Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             stage.setScene(scene);
