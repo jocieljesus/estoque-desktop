@@ -7,10 +7,9 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import javax.swing.*;
 import java.io.IOException;
 
-public class HomeController {
+public class MenuController {
 
     @FXML
     protected void aoSair(ActionEvent event) throws IOException {
@@ -22,3 +21,4 @@ public class HomeController {
         stage.show();
     }
 }
+

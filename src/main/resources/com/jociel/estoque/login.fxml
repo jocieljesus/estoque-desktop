@@ -11,30 +11,36 @@
 <?import javafx.scene.text.TextFlow?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<VBox alignment="CENTER" prefHeight="600.0" prefWidth="500.0" spacing="20.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jociel.estoque.LoginController">
+<VBox alignment="CENTER" prefHeight="450.0" prefWidth="700.0" spacing="20.0" style="-fx-background-color: #EFFFD6; -fx-border-color: #4b793f; -fx-border-width: 2;" styleClass="root" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jociel.estoque.LoginController">
     <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
     </padding>
-   <FontIcon iconLiteral="mdi2a-account-credit-card-outline" iconSize="50" />
+   <FontIcon iconColor="#4b793f" iconLiteral="mdi2a-account-credit-card-outline" iconSize="50" />
 
-    <Label fx:id="textoNaTela" text="Acesse Sua Conta">
+    <Label fx:id="textoNaTela" text="Sistema de Estoque" textFill="#4b793f">
       <font>
-         <Font name="Comic Sans MS Bold Italic" size="24.0" />
+         <Font name="Gill Sans MT" size="24.0" />
       </font>
       <VBox.margin>
-         <Insets bottom="30.0" />
+         <Insets bottom="20.0" />
       </VBox.margin></Label>
-   <TextField fx:id="usuario" prefHeight="44.0" prefWidth="343.0" promptText="Informe seu usuário">
+   <TextField fx:id="usuario" prefHeight="44.0" prefWidth="535.0" promptText="Informe seu usuário" styleClass="campos-login">
       <VBox.margin>
-         <Insets bottom="20.0" left="50.0" right="50.0" />
+         <Insets bottom="20.0" left="80.0" right="80.0" />
       </VBox.margin>
+      <font>
+         <Font name="Gill Sans MT" size="16.0" />
+      </font>
    </TextField>
-   <PasswordField fx:id="senha" onAction="#aoApertarBotao" prefHeight="44.0" prefWidth="460.0" promptText="Informe sua senha">
+   <PasswordField fx:id="senha" onAction="#aoApertarBotao" prefHeight="44.0" prefWidth="460.0" promptText="Informe sua senha" styleClass="campos-login">
       <VBox.margin>
-         <Insets bottom="-20.0" left="50.0" right="50.0" />
+         <Insets bottom="-10.0" left="80.0" right="80.0" />
       </VBox.margin>
+      <font>
+         <Font name="Gill Sans MT" size="16.0" />
+      </font>
    </PasswordField>
-   <TextFlow fx:id="erroDados" prefHeight="43.0" prefWidth="360.0" textAlignment="CENTER" visible="false">
+   <TextFlow fx:id="erroDados" prefHeight="43.0" prefWidth="360.0" textAlignment="CENTER" translateY="-8.0" visible="false">
       <VBox.margin>
          <Insets left="50.0" right="50.0" />
       </VBox.margin>
@@ -45,20 +51,17 @@
             </font>
          </Text>
       </children>
-      <padding>
-         <Insets top="10.0" />
-      </padding>
    </TextFlow>
-    <Button fx:id="btnAcessar" cache="true" onAction="#aoApertarBotao" prefHeight="44.0" prefWidth="349.0" style="-fx-background-radius: 10;" text="Acessar" VBox.vgrow="ALWAYS">
+    <Button fx:id="btnAcessar" cache="true" onAction="#aoApertarBotao" prefHeight="44.0" prefWidth="349.0" styleClass="botao" text="Acessar" VBox.vgrow="ALWAYS">
       <font>
-         <Font name="Comic Sans MS" size="20.0" />
+         <Font name="Gill Sans MT" size="21.0" />
       </font>
       <VBox.margin>
-         <Insets top="-20.0" />
+         <Insets top="-40.0" />
       </VBox.margin></Button>
-   <Label fx:id="recuperaSenha" onMouseClicked="#aoEsquecerSenha" text="Esqueceu sua senha. Recupere aqui!" textFill="#2f5ef8" underline="true">
+   <Label fx:id="recuperaSenha" onMouseClicked="#aoEsquecerSenha" text="Esqueceu sua senha. Recupere aqui!" textFill="#4b793f" underline="true">
       <font>
-         <Font name="Comic Sans MS Italic" size="14.0" />
+         <Font name="Gill Sans MT Italic" size="16.0" />
       </font>
       <VBox.margin>
          <Insets />
