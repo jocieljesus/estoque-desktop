@@ -17,7 +17,7 @@
                   <Font name="Baskerville Old Face" size="20.0" />
                </font>
             </Label>
-            <Button fx:id="btnSair" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#aoSair" prefHeight="42.0" prefWidth="187.0" text=" Visualizar estoque">
+            <Button fx:id="btnVisualizarEstoque" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#aoVisualizarEstoque" prefHeight="42.0" prefWidth="187.0" text=" Visualizar estoque">
                <styleClass>
                   <String fx:value="botao-menu" />
                   <String fx:value="titulo" />
@@ -26,7 +26,7 @@
                   <FontIcon iconColor="#efffd6" iconLiteral="mdi2a-archive-eye-outline" iconSize="20" text="󱝖" />
                </graphic>
             </Button>
-            <Button fx:id="btnSair1" alignment="BASELINE_LEFT" layoutX="18.0" layoutY="58.0" mnemonicParsing="false" onAction="#aoSair" prefHeight="38.0" prefWidth="175.0" text="Entrada de Produtos">
+            <Button fx:id="btnEntradaProdutos" alignment="BASELINE_LEFT" layoutX="18.0" layoutY="58.0" mnemonicParsing="false" onAction="#aoCadastrarProduto" prefHeight="38.0" prefWidth="175.0" text="Entrada de Produtos">
                <styleClass>
                   <String fx:value="botao-menu" />
                   <String fx:value="titulo" />
@@ -35,7 +35,7 @@
                   <FontIcon iconColor="#efffd6" iconLiteral="mdi2p-package-variant-plus" iconSize="20" />
                </graphic>
             </Button>
-            <Button fx:id="btnSair11" alignment="BASELINE_LEFT" layoutX="18.0" layoutY="96.0" mnemonicParsing="false" onAction="#aoSair" prefHeight="38.0" prefWidth="175.0" text="Relatório">
+            <Button fx:id="btnRelatorio" alignment="BASELINE_LEFT" layoutX="18.0" layoutY="96.0" mnemonicParsing="false" onAction="#aoGerarRelatorio" prefHeight="38.0" prefWidth="175.0" text="Relatório">
                <styleClass>
                   <String fx:value="botao-menu" />
                   <String fx:value="titulo" />
@@ -44,7 +44,7 @@
                   <FontIcon iconColor="#efffd6" iconLiteral="mdi2b-beaker-check-outline" iconSize="20" />
                </graphic>
             </Button>
-            <Button fx:id="btnSair1111" alignment="BASELINE_LEFT" layoutX="18.0" layoutY="172.0" mnemonicParsing="false" onAction="#aoSair" prefHeight="38.0" prefWidth="175.0" text="Sair">
+            <Button fx:id="btnSair" alignment="BASELINE_LEFT" layoutX="18.0" layoutY="172.0" mnemonicParsing="false" onAction="#aoSair" prefHeight="38.0" prefWidth="175.0" text="Sair">
                <styleClass>
                   <String fx:value="botao-menu" />
                   <String fx:value="titulo" />
