@@ -12,4 +12,5 @@ module com.jociel.estoque {
 
 
     exports com.jociel.estoque;
+
 }

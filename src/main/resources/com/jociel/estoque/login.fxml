@@ -5,17 +5,22 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
-<?import org.kordamp.ikonli.javafx.FontIcon?>
 
 <VBox alignment="CENTER" prefHeight="450.0" prefWidth="700.0" spacing="20.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jociel.estoque.controller.LoginController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-   <FontIcon iconColor="#213a40" iconLiteral="mdi2a-account-credit-card-outline" iconSize="50" />
+   <ImageView fitHeight="95.0" fitWidth="139.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@estoque.png" />
+      </image>
+   </ImageView>
 
     <Label fx:id="textoNaTela" text="Sistema de Estoque " textFill="#213a40">
       <font>

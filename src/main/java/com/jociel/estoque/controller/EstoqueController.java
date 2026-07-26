@@ -49,8 +49,8 @@ public class EstoqueController {
     }
 
     @FXML
-    protected void adicionarProduto()  {
-        SceneManager.getInstance().abrirModal(
+    protected void adicionarProduto(ActionEvent event) throws IOException {
+        SceneManager.getInstance().trocarTela( event,
                 "/com/jociel/estoque/produto.fxml",
                 "Adicionar Produto"
         );
@@ -60,13 +60,14 @@ public class EstoqueController {
 
 
     @FXML
-    protected void editarProduto(){
+    protected void editarProduto(ActionEvent event) throws IOException{
         Produto produtoSelecionado =  tabelaProdutos.getSelectionModel().getSelectedItem();
         if(  produtoSelecionado == null){
             mostrarAlerta("Selecione um produto para editar.");
             return;
         }
-        SceneManager.getInstance().abrirModal(
+        SceneManager.getInstance().abrirEdicao(
+                event,
                 "/com/jociel/estoque/produto.fxml",
                 "Adicionar Produto",
                 (ProdutoController controller) -> controller.preencherParaEdicao(produtoSelecionado)
@@ -100,7 +101,7 @@ public class EstoqueController {
 
     @FXML
     protected void voltarParaMenu(ActionEvent event) throws IOException {
-        SceneManager.getInstance().voltarTela(
+        SceneManager.getInstance().trocarTela(
                 event,
                 "/com/jociel/estoque/menu.fxml",
                 "Sistema de Estoque - Menu"

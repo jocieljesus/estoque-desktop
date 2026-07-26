@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox prefHeight="450.0" prefWidth="700.0" style="-fx-background-color: #DFF1EF;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jociel.estoque.controller.EstoqueController">
+<VBox prefHeight="450.0" prefWidth="700.0" style="-fx-background-color: #DFF1EF;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jociel.estoque.controller.RelatorioController">
    <children>
       <Label text="Relatório do Estoque" textFill="#213a40">
          <font>
@@ -17,28 +16,40 @@
       </Label>
       <HBox prefHeight="182.0" prefWidth="650.0">
          <children>
-            <VBox alignment="CENTER" prefHeight="142.0" prefWidth="165.0" style="-fx-background-color: #fff; -fx-background-radius: 10;">
+            <VBox alignment="CENTER" prefHeight="142.0" prefWidth="139.0" style="-fx-background-color: #fff; -fx-background-radius: 10;">
                <HBox.margin>
                   <Insets right="20.0" />
                </HBox.margin>
                <children>
-                  <Label prefHeight="79.0" prefWidth="138.0" />
+                  <Label fx:id="labelTotalProdutos" alignment="CENTER" prefHeight="79.0" prefWidth="138.0" text="5" textAlignment="CENTER">
+                  <font>
+                     <Font name="System Bold" size="28.8" />
+                  </font>
+                  </Label>
                   <Label layoutX="10.0" layoutY="42.0" prefHeight="40.0" prefWidth="119.0" text="Produtos Cadastrados" textFill="#8a8a8a" />
                </children>
             </VBox>
-            <VBox alignment="CENTER" layoutX="10.0" layoutY="30.0" prefHeight="142.0" prefWidth="202.0" style="-fx-background-color: #fff; -fx-background-radius: 10;">
+            <VBox alignment="CENTER" layoutX="10.0" layoutY="30.0" prefHeight="142.0" prefWidth="202.0" style="-fx-background-color: #fff; -fx-background-radius: 10;" HBox.hgrow="ALWAYS">
                <children>
-                  <Label prefHeight="79.0" prefWidth="138.0" />
+                  <Label fx:id="labelValorTotal" alignment="CENTER" prefHeight="79.0" prefWidth="329.0" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="System Bold" size="28.8" />
+                     </font>
+                  </Label>
                   <Label layoutX="24.0" layoutY="42.0" prefHeight="42.0" prefWidth="126.0" text="Valor total em estoque " textFill="#8a8a8a" />
                </children>
                <HBox.margin>
                   <Insets right="20.0" />
                </HBox.margin>
             </VBox>
-            <VBox alignment="CENTER" layoutX="195.0" layoutY="30.0" prefHeight="142.0" prefWidth="282.0" style="-fx-background-color: #fff; -fx-background-radius: 10;">
+            <VBox alignment="CENTER" layoutX="195.0" layoutY="30.0" prefHeight="142.0" prefWidth="135.0" style="-fx-background-color: #fff; -fx-background-radius: 10;">
                <children>
-                  <Label prefHeight="79.0" prefWidth="183.0" />
-                  <Label layoutX="10.0" layoutY="42.0" prefHeight="40.0" prefWidth="187.0" text="Produtos com estoque baixo (&lt;10)" textFill="#8a8a8a" />
+                  <Label fx:id="labelBaixoEstoque" alignment="CENTER" prefHeight="79.0" prefWidth="183.0">
+                     <font>
+                        <Font name="System Bold" size="28.8" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="10.0" layoutY="42.0" prefHeight="40.0" prefWidth="187.0" text="Estoque abaixo de 10" textFill="#8a8a8a" />
                </children>
             </VBox>
          </children>
@@ -46,7 +57,7 @@
             <Insets bottom="20.0" top="20.0" />
          </padding>
       </HBox>
-      <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="109.0" style="-fx-background-color: #213A40;" text="Voltar" textFill="WHITE">
+      <Button mnemonicParsing="false" onAction="#voltarParaMenu" prefHeight="37.0" prefWidth="109.0" style="-fx-background-color: #213A40;" text="Voltar" textFill="WHITE">
          <font>
             <Font name="Segoe UI Semibold" size="17.0" />
          </font>
