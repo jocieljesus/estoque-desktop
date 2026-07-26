@@ -1,4 +1,4 @@
-package com.jociel.estoque;
+package com.jociel.estoque.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,7 +15,7 @@ public class MenuController {
 
     @FXML
     protected void aoSair(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("login.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/jociel/estoque/login.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -26,7 +26,7 @@ public class MenuController {
 
     @FXML
     protected void aoVizualizarEstoque(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("estoque.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/jociel/estoque/estoque.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -37,7 +37,7 @@ public class MenuController {
 
     @FXML
     protected  void aoAdicionarProduto(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("produto.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/jociel/estoque/produto.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -47,7 +47,7 @@ public class MenuController {
     }
     @FXML
     protected  void aoVerRelatorio(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("relatorio.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/jociel/estoque/relatorio.fxml"));
 
         Scene scene = new Scene(fxmlLoader.load());
 
