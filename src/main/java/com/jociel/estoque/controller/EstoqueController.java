@@ -28,18 +28,18 @@ public class EstoqueController {
     @FXML
     private TextField campoBusca;
 
-    private final EstoqueDAO estoqueDao =  EstoqueDAO.getInstance();
+    private final EstoqueDAO estoqueDao = EstoqueDAO.getInstance();
     private FilteredList<Produto> listaFiltrada;
 
     @FXML
-    public void initialize(){
+    public void initialize() {
         colunaId.setCellValueFactory(new PropertyValueFactory<>("id"));
         colunaNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
         colunaCategoria.setCellValueFactory(new PropertyValueFactory<>("categoria"));
         colunaQuantidade.setCellValueFactory(new PropertyValueFactory<>("quantidade"));
         colunaPreco.setCellValueFactory(new PropertyValueFactory<>("preco"));
 
-        listaFiltrada =  new FilteredList<>(estoqueDao.getListaProdutos(), p -> true);
+        listaFiltrada = new FilteredList<>(estoqueDao.getListaProdutos(), p -> true);
         tabelaProdutos.setItems(listaFiltrada);
 
         campoBusca.textProperty().addListener((obs, textoAntigo, textoNovo) -> {
@@ -50,26 +50,24 @@ public class EstoqueController {
 
     @FXML
     protected void adicionarProduto(ActionEvent event) throws IOException {
-        SceneManager.getInstance().trocarTela( event,
+        SceneManager.getInstance().trocarTela(event,
                 "/com/jociel/estoque/produto.fxml",
-                "Adicionar Produto"
+                "Sistema Estoque - Editar Produto"
         );
     }
 
 
-
-
     @FXML
-    protected void editarProduto(ActionEvent event) throws IOException{
-        Produto produtoSelecionado =  tabelaProdutos.getSelectionModel().getSelectedItem();
-        if(  produtoSelecionado == null){
+    protected void editarProduto(ActionEvent event) throws IOException {
+        Produto produtoSelecionado = tabelaProdutos.getSelectionModel().getSelectedItem();
+        if (produtoSelecionado == null) {
             mostrarAlerta("Selecione um produto para editar.");
             return;
         }
         SceneManager.getInstance().abrirEdicao(
                 event,
                 "/com/jociel/estoque/produto.fxml",
-                "Adicionar Produto",
+                "Sistema Estoque - Adicionar Produto",
                 (ProdutoController controller) -> controller.preencherParaEdicao(produtoSelecionado)
         );
     }
@@ -80,8 +78,9 @@ public class EstoqueController {
         alerta.showAndWait();
     }
 
+
     @FXML
-    protected void removerProduto(){
+    protected void removerProduto() {
         Produto selecionado = tabelaProdutos.getSelectionModel().getSelectedItem();
         if (selecionado == null) {
             mostrarAlerta("Selecione um produto para remover.");
@@ -107,7 +106,6 @@ public class EstoqueController {
                 "Sistema de Estoque - Menu"
         );
     }
-
 
 
 }

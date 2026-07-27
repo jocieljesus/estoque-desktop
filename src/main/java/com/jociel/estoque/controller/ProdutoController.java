@@ -42,7 +42,7 @@ public class ProdutoController {
         String nome = campoNome.getText();
         String categoria = campoCategoria.getText();
 
-        if (nome == null || nome.isEmpty()) {
+        if (nome == null || nome.isBlank()) {
             mostrarErro("Informe o nome do produto.");
             return;
         }
@@ -58,11 +58,9 @@ public class ProdutoController {
         }
 
         if (produtoEmEdicao == null) {
-            // Modo adicionar
             estoqueDAO.adicionar(new Produto(0, nome, categoria, quantidade, preco));
             mostrarSucesso(event, "Produto inserido com sucesso!");
         } else {
-            // Modo edição: atualiza o objeto que já está na lista do DAO
             produtoEmEdicao.setNome(nome);
             produtoEmEdicao.setCategoria(categoria);
             produtoEmEdicao.setQuantidade(quantidade);
