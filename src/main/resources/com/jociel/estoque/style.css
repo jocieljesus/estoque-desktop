@@ -4,6 +4,11 @@
 .root{
     -fx-font-family: "Roboto Condensed", Arial, sans-serif;
     -fx-background-color :  #EFFFD6;
+    -fx-text-fill: #4b793f;
+}
+
+.meu-painel {
+    -fx-background-color: linear-gradient(to bottom, #777CD9, #F2E1D8);
 }
 
 .campos-login{
@@ -19,6 +24,8 @@
     -fx-background-color : #4b793f;
     -fx-background-radius :  10;
     -fx-text-fill: #efffd6;
+
+
 }
 
 .botao:hover{
