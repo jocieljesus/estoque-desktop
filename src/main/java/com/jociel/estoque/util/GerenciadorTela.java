@@ -25,7 +25,7 @@ public class GerenciadorTela {
 
     public void trocarTela(ActionEvent event, String telaFXML, String titulo) throws IOException {
 
-        FXMLLoader  fxmlLoader = new FXMLLoader(getClass().getResource(telaFXML));
+        FXMLLoader  fxmlLoader = new FXMLLoader(getClass().getResource("/com/jociel/estoque/"+telaFXML));
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setTitle(titulo);

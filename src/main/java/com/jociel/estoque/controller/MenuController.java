@@ -20,8 +20,8 @@ public class MenuController {
     }
 
     @FXML
-    protected  void aoGerarRelatorio(ActionEvent event){
-
+    protected  void aoGerarRelatorio(ActionEvent event) throws IOException {
+        GerenciadorTela.getIntancia().trocarTela(event, "relatorio.fxml", "Sistema de Estoque - Relatório");
     }
 
     @FXML
