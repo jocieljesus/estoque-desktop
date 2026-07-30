@@ -8,6 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.TextFlow;
 
 import java.io.IOException;
+import java.util.Map;
 
 public class LoginController {
     @FXML
@@ -19,13 +20,20 @@ public class LoginController {
     @FXML
     private TextFlow erroDados;
 
-    private final String usuarioCadastrado = "maria@gmail.com";
-    private final String senhaCadastrada = "010203";
+    private Map<String, String> usuariosCadastrados = Map.of(
+            "admin@gmail.com", "admin",
+            "jociel@gmail.com", "010203",
+            "funci@gmail.com", "1234"
+    );
 
     @FXML
     protected void aoApertarBotao(ActionEvent event) throws IOException {
 
-        if ( usuarioCadastrado.equalsIgnoreCase(usuario.getText()) && senhaCadastrada.equals(senha.getText())){
+        String usuarioDigitado = usuario.getText().toLowerCase();
+        String senhaDigitada = senha.getText();
+
+        if ( usuariosCadastrados.containsKey(usuarioDigitado) && usuariosCadastrados.get(usuarioDigitado).equals(senhaDigitada) ){
+
 
             GerenciadorTela.getIntancia().trocarTela(event, "menu.fxml", "Sistema Estoque - Menu");
 
