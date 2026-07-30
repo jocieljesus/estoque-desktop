@@ -25,27 +25,27 @@
             </Label>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <TextField prefHeight="25.0" prefWidth="270.0">
+                  <TextField fx:id="campoBusca" prefHeight="25.0" prefWidth="270.0">
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin>
                   </TextField>
-                  <Button mnemonicParsing="false" prefWidth="80.0" text="+ Adicionar">
+                  <Button fx:id="btnAdicionar" mnemonicParsing="false" onAction="#adicionarProduto" prefWidth="80.0" text="+ Adicionar">
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button layoutX="159.0" layoutY="10.0" mnemonicParsing="false" prefWidth="80.0" text="Editar">
+                  <Button fx:id="btnEditar" layoutX="159.0" layoutY="10.0" mnemonicParsing="false" onAction="#editarProduto" prefWidth="80.0" text="Editar">
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button layoutX="221.0" layoutY="10.0" mnemonicParsing="false" prefWidth="80.0" text="- Remover">
+                  <Button fx:id="btnRemover" layoutX="221.0" layoutY="10.0" mnemonicParsing="false" onAction="#removerProduto" prefWidth="80.0" text="- Remover">
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button layoutX="283.0" layoutY="10.0" mnemonicParsing="false" prefWidth="80.0" text="Voltar"  onAction="#aoVoltarMenu"  fx:id="btnVoltar"/>
+                  <Button fx:id="btnVoltar" layoutX="283.0" layoutY="10.0" mnemonicParsing="false" onAction="#aoVoltarMenu" prefWidth="80.0" text="Voltar" />
                </children>
             </HBox>
          </children>
@@ -54,13 +54,13 @@
          </padding></VBox>
    </top>
    <center>
-      <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="tabelaProdutos" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn prefWidth="54.333335876464844" text="ID" />
-          <TableColumn prefWidth="257.33331298828125" text="Nome" />
-            <TableColumn minWidth="0.0" prefWidth="158.66668701171875" text="Categoria" />
-            <TableColumn minWidth="0.0" prefWidth="82.33334350585938" text="Quantidade" />
-            <TableColumn minWidth="0.0" prefWidth="87.66668701171875" text="Preço (R$)" />
+          <TableColumn fx:id="colunaId" prefWidth="54.333335876464844" text="ID" />
+          <TableColumn fx:id="colunaNome" prefWidth="257.33331298828125" text="Nome" />
+            <TableColumn fx:id="colunaCategoria" minWidth="0.0" prefWidth="158.66668701171875" text="Categoria" />
+            <TableColumn fx:id="colunaQuantidade" minWidth="0.0" prefWidth="82.33334350585938" text="Quantidade" />
+            <TableColumn fx:id="colunaPreco" minWidth="0.0" prefWidth="87.66668701171875" text="Preço (R$)" />
         </columns>
          <BorderPane.margin>
             <Insets bottom="10.0" left="30.0" right="30.0" />

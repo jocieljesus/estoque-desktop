@@ -2,10 +2,13 @@ module com.jociel.estoque {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.desktop;
+    requires org.kordamp.ikonli.javafx;
+    requires org.kordamp.ikonli.materialdesign2;
 
 
     opens com.jociel.estoque to javafx.fxml;
-    exports com.jociel.estoque;
-    exports com.jociel.estoque.controller;
     opens com.jociel.estoque.controller to javafx.fxml;
+    opens com.jociel.estoque.model to javafx.base;
+
+    exports com.jociel.estoque;
 }
