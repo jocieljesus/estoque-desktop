@@ -1,51 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
-
-
-<BorderPane prefHeight="450.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jociel.estoque.controller.MenuController">
-   <left>
-      <VBox prefWidth="220.0" style="-fx-background-color: #213A40;">
-         <children>
-            <Label text="Estoque" textFill="WHITE">
-               <font>
-                  <Font name="Segoe UI Bold" size="18.0" />
-               </font>
-               <padding>
-                  <Insets left="10.0" top="20.0" />
-               </padding>
-            </Label>
-            <Button  onAction="#aoVizualizarEstoque" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-text-fill: #d6deeb; -fx-font-size: 14; -fx-alignment: CENTER_LEFT; -fx-padding: 14 25; -fx-pref-width: 220; -fx-cursor: hand; -fx-background-radius: 0;" text="Vizualizar Estoque" />
-            <Button  onAction="#aoAdicionarProduto" layoutX="10.0" layoutY="38.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-text-fill: #d6deeb; -fx-font-size: 14; -fx-alignment: CENTER_LEFT; -fx-padding: 14 25; -fx-pref-width: 220; -fx-cursor: hand; -fx-background-radius: 0;" text="Entrada  de Produtos" />
-            <Button onAction="#aoVerRelatorio" layoutX="10.0" layoutY="101.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-text-fill: #d6deeb; -fx-font-size: 14; -fx-alignment: CENTER_LEFT; -fx-padding: 14 25; -fx-pref-width: 220; -fx-cursor: hand; -fx-background-radius: 0;" text="Relátorio" />
-            <Button fx:id="btnSair" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="134.0" mnemonicParsing="false" onAction="#aoSair" style="-fx-background-color: transparent; -fx-text-fill: #d6deeb; -fx-font-size: 14; -fx-alignment: CENTER_LEFT; -fx-padding: 14 25; -fx-pref-width: 220; -fx-cursor: hand; -fx-background-radius: 0;" text="sair">
-               <graphic>
-                  <FontIcon fx:id="icoSair" iconColor="WHITE" iconLiteral="mdi2e-exit-to-app" iconSize="30" text="󰈆" />
-               </graphic>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </Button>
-            <Button layoutX="10.0" layoutY="624.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-text-fill: #d6deeb; -fx-font-size: 14; -fx-alignment: CENTER_LEFT; -fx-padding: 14 25; -fx-pref-width: 220; -fx-cursor: hand; -fx-background-radius: 0;" />
-         </children>
-      </VBox>
-   </left>
-   <center>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label text="Bem Vindo(a) !" textFill="#213a40">
-               <font>
-                  <Font name="Segoe UI Semibold" size="24.0" />
-               </font>
-            </Label>
-            <Label text="Selecione uma opção no menu ao lado." textFill="#213a40a2" />
-         </children>
-      </VBox>
-   </center>
+<BorderPane prefHeight="450.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.jociel.estoque.controller.MenuController">
+    <left>
+        <VBox prefWidth="220.0" style="-fx-background-color: #213A40;" VBox.vgrow="ALWAYS">
+            <children>
+                <Label text="Estoque" textFill="WHITE">
+                    <font>
+                        <Font name="Segoe UI Bold" size="18.0"/>
+                    </font>
+                    <padding>
+                        <Insets left="10.0" top="20.0"/>
+                    </padding>
+                </Label>
+                <Button mnemonicParsing="false" onAction="#aoVizualizarEstoque"
+                        style="-fx-background-color: transparent; -fx-text-fill: #d6deeb; -fx-font-size: 14; -fx-alignment: CENTER_LEFT; -fx-padding: 14 25; -fx-pref-width: 220; -fx-cursor: hand; -fx-background-radius: 0;"
+                        text="Vizualizar Estoque"/>
+                <Button layoutX="10.0" layoutY="38.0" mnemonicParsing="false" onAction="#aoAdicionarProduto"
+                        style="-fx-background-color: transparent; -fx-text-fill: #d6deeb; -fx-font-size: 14; -fx-alignment: CENTER_LEFT; -fx-padding: 14 25; -fx-pref-width: 220; -fx-cursor: hand; -fx-background-radius: 0;"
+                        text="Entrada  de Produtos"/>
+                <Button layoutX="10.0" layoutY="101.0" mnemonicParsing="false" onAction="#aoVerRelatorio"
+                        style="-fx-background-color: transparent; -fx-text-fill: #d6deeb; -fx-font-size: 14; -fx-alignment: CENTER_LEFT; -fx-padding: 14 25; -fx-pref-width: 220; -fx-cursor: hand; -fx-background-radius: 0;"
+                        text="Relátorio"/>
+                <Button fx:id="btnSair" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="134.0" mnemonicParsing="false"
+                        onAction="#aoSair"
+                        style="-fx-background-color: transparent; -fx-text-fill: #d6deeb; -fx-font-size: 14; -fx-alignment: CENTER_LEFT; -fx-padding: 14 25; -fx-pref-width: 220; -fx-cursor: hand; -fx-background-radius: 0;"
+                        text="sair">
+                    <graphic>
+                        <FontIcon fx:id="icoSair" iconColor="WHITE" iconLiteral="mdi2e-exit-to-app" iconSize="30"
+                                  text="󰈆"/>
+                    </graphic>
+                    <VBox.margin>
+                        <Insets/>
+                    </VBox.margin>
+                </Button>
+                <Button layoutX="10.0" layoutY="624.0" mnemonicParsing="false"
+                        style="-fx-background-color: transparent; -fx-text-fill: #d6deeb; -fx-font-size: 14; -fx-alignment: CENTER_LEFT; -fx-padding: 14 25; -fx-pref-width: 220; -fx-cursor: hand; -fx-background-radius: 0;"
+                        VBox.vgrow="ALWAYS"/>
+            </children>
+        </VBox>
+    </left>
+    <center>
+        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" VBox.vgrow="ALWAYS">
+            <children>
+                <Label text="Bem Vindo(a) !" textFill="#213a40" VBox.vgrow="ALWAYS">
+                    <font>
+                        <Font name="Segoe UI Semibold" size="24.0"/>
+                    </font>
+                </Label>
+                <Label text="Selecione uma opção no menu ao lado." textFill="#213a40a2"/>
+            </children>
+        </VBox>
+    </center>
 </BorderPane>

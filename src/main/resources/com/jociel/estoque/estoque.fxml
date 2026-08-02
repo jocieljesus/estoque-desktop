@@ -1,74 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-
-<BorderPane prefHeight="450.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jociel.estoque.controller.EstoqueController">
-   <top>
-      <VBox prefHeight="122.0" prefWidth="700.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label text="Produtos em Estoque">
-               <padding>
-                  <Insets bottom="15.0" top="20.0" />
-               </padding>
-               <font>
-                  <Font name="Segoe UI Semibold" size="20.0" />
-               </font>
-            </Label>
-            <HBox alignment="CENTER" prefHeight="53.0" prefWidth="655.0">
-               <children>
-                  <TextField fx:id="campoBusca" prefHeight="32.0" prefWidth="250.0" promptText="Buscar por nome ou categoria..">
-                     <HBox.margin>
-                        <Insets right="10.0" />
-                     </HBox.margin>
-                  </TextField>
-                  <Button mnemonicParsing="false" onAction="#adicionarProduto" prefHeight="31.0" prefWidth="94.0" style="-fx-background-color: #213A40;" text="+ Adicionar" textFill="WHITE">
-                     <HBox.margin>
-                        <Insets right="10.0" />
-                     </HBox.margin>
-                  </Button>
-                  <Button layoutX="159.0" layoutY="10.0" mnemonicParsing="false" onAction="#editarProduto" prefHeight="31.0" prefWidth="65.0" text="Editar">
-                     <HBox.margin>
-                        <Insets right="10.0" />
-                     </HBox.margin>
-                  </Button>
-                  <Button layoutX="237.0" layoutY="10.0" mnemonicParsing="false" onAction="#removerProduto" prefHeight="30.0" prefWidth="82.0" style="-fx-background-color: red;" text="- Remover" textFill="WHITE">
-                     <HBox.margin>
-                        <Insets right="10.0" />
-                     </HBox.margin>
-                  </Button>
-                  <Button layoutX="284.0" layoutY="10.0" mnemonicParsing="false" onAction="#voltarParaMenu" prefHeight="30.0" prefWidth="94.0" text="Voltar" />
-               </children>
-            </HBox>
-         </children>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-         <padding>
-            <Insets left="25.0" right="20.0" />
-         </padding>
-      </VBox>
-   </top>
-   <center>
-      <TableView fx:id="tabelaProdutos" prefHeight="328.0" prefWidth="600.0" BorderPane.alignment="CENTER">
-        <columns>
-          <TableColumn fx:id="colunaId" prefWidth="49.0" text="ID" />
-          <TableColumn fx:id="colunaNome" prefWidth="285.0" text="Nome" />
-            <TableColumn fx:id="colunaCategoria" minWidth="0.0" prefWidth="170.0" text="Categoria" />
-            <TableColumn fx:id="colunaQuantidade" minWidth="0.0" prefWidth="77.0" text="Quantidade" />
-            <TableColumn fx:id="colunaPreco" minWidth="0.0" prefWidth="82.0" text="Preço (R$)" />
-        </columns>
-         <BorderPane.margin>
-            <Insets bottom="20.0" left="20.0" right="20.0" />
-         </BorderPane.margin>
-      </TableView>
-   </center>
+<BorderPane prefHeight="450.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.jociel.estoque.controller.EstoqueController">
+    <top>
+        <VBox prefHeight="122.0" prefWidth="700.0" BorderPane.alignment="CENTER" VBox.vgrow="ALWAYS">
+            <children>
+                <Label text="Produtos em Estoque">
+                    <padding>
+                        <Insets bottom="15.0" top="20.0"/>
+                    </padding>
+                    <font>
+                        <Font name="Segoe UI Semibold" size="20.0"/>
+                    </font>
+                </Label>
+                <HBox alignment="CENTER" prefHeight="53.0" prefWidth="655.0" HBox.hgrow="ALWAYS">
+                    <children>
+                        <TextField fx:id="campoBusca" prefHeight="32.0" prefWidth="250.0"
+                                   promptText="Buscar por nome ou categoria..">
+                            <HBox.margin>
+                                <Insets right="10.0"/>
+                            </HBox.margin>
+                        </TextField>
+                        <Button mnemonicParsing="false" onAction="#adicionarProduto" prefHeight="31.0" prefWidth="94.0"
+                                style="-fx-background-color: #213A40;" text="+ Adicionar" textFill="WHITE">
+                            <HBox.margin>
+                                <Insets right="10.0"/>
+                            </HBox.margin>
+                        </Button>
+                        <Button layoutX="159.0" layoutY="10.0" mnemonicParsing="false" onAction="#editarProduto"
+                                prefHeight="31.0" prefWidth="65.0" text="Editar">
+                            <HBox.margin>
+                                <Insets right="10.0"/>
+                            </HBox.margin>
+                        </Button>
+                        <Button layoutX="237.0" layoutY="10.0" mnemonicParsing="false" onAction="#removerProduto"
+                                prefHeight="30.0" prefWidth="82.0" style="-fx-background-color: red;" text="- Remover"
+                                textFill="WHITE">
+                            <HBox.margin>
+                                <Insets right="10.0"/>
+                            </HBox.margin>
+                        </Button>
+                        <Button layoutX="284.0" layoutY="10.0" mnemonicParsing="false" onAction="#voltarParaMenu"
+                                prefHeight="30.0" prefWidth="94.0" text="Voltar"/>
+                    </children>
+                </HBox>
+            </children>
+            <opaqueInsets>
+                <Insets/>
+            </opaqueInsets>
+            <padding>
+                <Insets left="25.0" right="20.0"/>
+            </padding>
+        </VBox>
+    </top>
+    <center>
+        <TableView fx:id="tabelaProdutos" prefHeight="328.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="colunaId" prefWidth="49.0" text="ID"/>
+                <TableColumn fx:id="colunaNome" prefWidth="285.0" text="Nome"/>
+                <TableColumn fx:id="colunaCategoria" minWidth="0.0" prefWidth="170.0" text="Categoria"/>
+                <TableColumn fx:id="colunaQuantidade" minWidth="0.0" prefWidth="77.0" text="Quantidade"/>
+                <TableColumn fx:id="colunaPreco" minWidth="0.0" prefWidth="82.0" text="Preço (R$)"/>
+            </columns>
+            <BorderPane.margin>
+                <Insets bottom="20.0" left="20.0" right="20.0"/>
+            </BorderPane.margin>
+        </TableView>
+    </center>
 </BorderPane>

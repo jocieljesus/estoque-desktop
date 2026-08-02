@@ -3,6 +3,7 @@ package com.jociel.estoque.util;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -26,9 +27,11 @@ public class SceneManager {
 
     public void trocarTela(ActionEvent event, String caminho, String titulo) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(caminho));
-        Scene scene = new Scene(fxmlLoader.load());
+        Parent novoRoot = fxmlLoader.load();
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = stage.getScene();
+        scene.setRoot(novoRoot);
         stage.setTitle(titulo);
         stage.setScene(scene);
         stage.show();
@@ -37,20 +40,22 @@ public class SceneManager {
 
     public <T> T abrirEdicao(ActionEvent event, String caminho, String titulo, Consumer<T> antesDeExibir) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(caminho));
-        Scene scene = new Scene(loader.load());
+        Parent novoRoot = loader.load();
         T controller = loader.getController();
         if (antesDeExibir != null) {
             antesDeExibir.accept(controller);
         }
 
-
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = stage.getScene();
+        scene.setRoot(novoRoot);
         stage.setTitle(titulo);
         stage.setScene(scene);
         stage.show();
         return controller;
 
     }
+
 
 }
 

@@ -9,119 +9,85 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="450.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jociel.estoque.controller.ProdutoController">
-   <top>
-      <VBox prefHeight="85.0" prefWidth="700.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label text="Dados do Produto">
-               <padding>
-                  <Insets bottom="15.0" left="50.0" top="30.0" />
-               </padding>
-               <font>
-                  <Font name="Segoe UI Semibold" size="20.0" />
-               </font>
-            </Label>
-         </children>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-         <padding>
-            <Insets left="25.0" right="20.0" />
-         </padding>
-      </VBox>
-   </top>
-   <left>
-      <VBox prefHeight="370.0" prefWidth="700.0" BorderPane.alignment="CENTER">
-         <children>
-            <VBox prefHeight="71.0" prefWidth="540.0">
-               <children>
-                  <Label text="Nome">
-                     <font>
-                        <Font name="Segoe UI Semibold" size="14.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="campoNome" prefHeight="38.0" prefWidth="540.0">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </TextField>
-               </children>
-               <VBox.margin>
-                  <Insets left="80.0" right="80.0" />
-               </VBox.margin>
-            </VBox>
-            <VBox layoutX="10.0" layoutY="55.0" prefHeight="73.0" prefWidth="540.0">
-               <children>
-                  <Label text="Categoria">
-                     <font>
-                        <Font name="Segoe UI Semibold" size="14.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="campoCategoria" prefHeight="34.0" prefWidth="540.0">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </TextField>
-               </children>
-               <VBox.margin>
-                  <Insets left="80.0" right="80.0" />
-               </VBox.margin>
-            </VBox>
-            <VBox layoutX="10.0" layoutY="100.0" prefHeight="67.0" prefWidth="540.0">
-               <children>
-                  <Label text="Quantidade">
-                     <font>
-                        <Font name="Segoe UI Semibold" size="14.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="campoQuantidade" prefHeight="34.0" prefWidth="540.0">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </TextField>
-               </children>
-               <VBox.margin>
-                  <Insets left="80.0" right="80.0" />
-               </VBox.margin>
-            </VBox>
-            <VBox layoutX="90.0" layoutY="154.0" prefHeight="67.0" prefWidth="540.0">
-               <children>
-                  <Label text="Preço">
-                     <font>
-                        <Font name="Segoe UI Semibold" size="14.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="campoPreco" prefHeight="34.0" prefWidth="540.0">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </TextField>
-               </children>
-               <VBox.margin>
-                  <Insets left="80.0" right="80.0" />
-               </VBox.margin>
-            </VBox>
-            <HBox alignment="CENTER_RIGHT" prefHeight="77.0" prefWidth="540.0">
-               <children>
-                  <Button fx:id="botaoCancelar" mnemonicParsing="false" onAction="#cancelar" prefHeight="42.0" prefWidth="117.0" text="Cancelar">
-                     <HBox.margin>
-                        <Insets right="20.0" />
-                     </HBox.margin>
-                     <font>
-                        <Font name="Segoe UI Semibold Italic" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="botaoSalvar" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#salvar" prefHeight="42.0" prefWidth="117.0" style="-fx-background-color: #213A40;" text="Salvar" textFill="WHITE">
-                     <font>
-                        <Font name="Segoe UI Semibold" size="12.0" />
-                     </font>
-                  </Button>
-               </children>
-               <VBox.margin>
-                  <Insets left="80.0" right="80.0" />
-               </VBox.margin>
-            </HBox>
-         </children>
-      </VBox>
-   </left>
+<BorderPane xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jociel.estoque.controller.ProdutoController">
+    <top>
+        <VBox BorderPane.alignment="CENTER" VBox.vgrow="ALWAYS">
+            <children>
+                <Label text="Dados do Produto">
+                    <padding>
+                        <Insets bottom="15.0" left="50.0" top="30.0" />
+                    </padding>
+                    <font>
+                        <Font name="Segoe UI Semibold" size="20.0" />
+                    </font>
+                </Label>
+            </children>
+        </VBox>
+    </top>
+    <center>
+        <VBox spacing="10" BorderPane.alignment="CENTER" VBox.vgrow="ALWAYS">
+            <padding>
+                <Insets left="80.0" right="80.0" top="10.0" />
+            </padding>
+            <children>
+                <VBox VBox.vgrow="ALWAYS">
+                    <children>
+                        <Label text="Nome">
+                            <font>
+                                <Font name="Segoe UI Semibold" size="14.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="campoNome" maxWidth="Infinity" prefHeight="38.0" VBox.vgrow="ALWAYS" />
+                    </children>
+                </VBox>
+                <VBox VBox.vgrow="ALWAYS">
+                    <children>
+                        <Label text="Categoria">
+                            <font>
+                                <Font name="Segoe UI Semibold" size="14.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="campoCategoria" maxWidth="Infinity" prefHeight="34.0" VBox.vgrow="ALWAYS" />
+                    </children>
+                </VBox>
+                <VBox VBox.vgrow="ALWAYS">
+                    <children>
+                        <Label text="Quantidade">
+                            <font>
+                                <Font name="Segoe UI Semibold" size="14.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="campoQuantidade" maxWidth="Infinity" prefHeight="34.0" />
+                    </children>
+                </VBox>
+                <VBox VBox.vgrow="ALWAYS">
+                    <children>
+                        <Label text="Preço">
+                            <font>
+                                <Font name="Segoe UI Semibold" size="14.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="campoPreco" maxWidth="Infinity" prefHeight="34.0" />
+                    </children>
+                </VBox>
+                <HBox alignment="CENTER_RIGHT" prefHeight="48.0" prefWidth="540.0" spacing="15" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+                    <VBox.margin>
+                        <Insets top="20.0" />
+                    </VBox.margin>
+                    <children>
+                        <Button fx:id="botaoCancelar" onAction="#cancelar" prefHeight="42.0" prefWidth="117.0" text="Cancelar" HBox.hgrow="ALWAYS">
+                            <font>
+                                <Font name="Segoe UI Semibold Italic" size="12.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="botaoSalvar" onAction="#salvar" prefHeight="42.0" prefWidth="117.0" style="-fx-background-color: #213A40;" text="Salvar" textFill="WHITE" HBox.hgrow="ALWAYS">
+                            <font>
+                                <Font name="Segoe UI Semibold" size="12.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </center>
 </BorderPane>

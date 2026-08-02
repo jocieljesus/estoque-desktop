@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+<VBox alignment="CENTER" spacing="12" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.jociel.estoque.controller.RecuperarSenhaController">
+    <padding>
+        <Insets top="30" right="30" bottom="30" left="30"/>
+    </padding>
+
+    <Label text="Recuperação de Senha" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+    <Label text="Informe seu usuário para receber o código de verificação:"/>
+
+    <TextField fx:id="txtUsuario" promptText="Usuário" maxWidth="250"/>
+    <Label fx:id="lblMensagem" style="-fx-text-fill: red;"/>
+
+    <Button text="Enviar código" onAction="#onEnviarCodigo"/>
+</VBox>

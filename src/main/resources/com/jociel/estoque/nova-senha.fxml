@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+<VBox alignment="CENTER" spacing="12" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.jociel.estoque.controller.NovaSenhaController">
+    <padding>
+        <Insets top="30" right="30" bottom="30" left="30"/>
+    </padding>
+
+    <Label text="Definir Nova Senha" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <PasswordField fx:id="txtNovaSenha" promptText="Nova senha" maxWidth="250"/>
+    <PasswordField fx:id="txtConfirmarSenha" promptText="Confirmar nova senha" maxWidth="250"/>
+    <Label fx:id="lblMensagem" style="-fx-text-fill: red;"/>
+
+    <Button text="Redefinir senha" onAction="#onRedefinir"/>
+</VBox>
