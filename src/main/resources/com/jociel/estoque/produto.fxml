@@ -86,7 +86,7 @@
                   <Insets left="80.0" right="80.0" />
                </padding>
                <children>
-                  <Button fx:id="botaoCancelar" mnemonicParsing="false" onAction="#cancelar" prefHeight="35.0" prefWidth="114.0" styleClass="botao" text="Cancelar">
+                  <Button fx:id="botaoCancelar" mnemonicParsing="false" onAction="#cancelar" minHeight="35.0" minWidth="114.0" styleClass="botao" text="Cancelar" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -94,7 +94,7 @@
                         <Insets right="20.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="botaoSalvar" layoutX="496.0" layoutY="26.0" mnemonicParsing="false" onAction="#salvar" prefHeight="35.0" prefWidth="114.0" styleClass="botao" text="Salvar">
+                  <Button fx:id="botaoSalvar" layoutX="496.0" layoutY="26.0" mnemonicParsing="false" onAction="#salvar" minHeight="35.0" minWidth="114.0" styleClass="botao" text="Salvar" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="14.0" />
                      </font>

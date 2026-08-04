@@ -6,12 +6,12 @@ import com.jociel.estoque.util.GerenciadorTela;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 public class EstoqueController {
 
@@ -41,6 +41,8 @@ public class EstoqueController {
 
     @FXML
     public void initialize(){
+
+        NumberFormat moedaFormatada = NumberFormat.getCurrencyInstance(new Locale("pr", "BR"));
         colunaId.setCellValueFactory( new PropertyValueFactory<>("id"));
         colunaNome.setCellValueFactory( new PropertyValueFactory<>("nome"));
         colunaCategoria.setCellValueFactory( new PropertyValueFactory<>("categoria"));
@@ -58,24 +60,56 @@ public class EstoqueController {
 
 
     @FXML
-    protected void  adicionarProduto(){
-
+    protected void  adicionarProduto(ActionEvent event) throws IOException {
+        GerenciadorTela.getInstancia().trocarTela(event, "produto.fxml", "Sistema de Estoque - Adicionar Produto");
     }
 
     @FXML
-    protected  void editarProduto(){
+    protected  void editarProduto(ActionEvent event) throws IOException{
+        Produto produtoSelecionado = (Produto) tabelaProdutos.getSelectionModel().getSelectedItem();
+        if( produtoSelecionado == null){
+            mostrarAlerta("Selecione um produto para editar!");
+            return;
+        }
+        GerenciadorTela.getInstancia().telaEdicao(
+                event,
+                "produto.fxml",
+                "Sistema de Estoque - Editar Produto",
+                (ProdutoController controller) -> controller.preencherParaEdicao(produtoSelecionado)
+                );
+    }
 
+
+    public void mostrarAlerta(String mensagem){
+        Alert alerta = new Alert(Alert.AlertType.INFORMATION, mensagem);
+        alerta.setHeaderText(null);
+        alerta.showAndWait();
     }
 
     @FXML
     protected void removerProduto(){
+        Produto produtoSelecionado = (Produto) tabelaProdutos.getSelectionModel().getSelectedItem();
+         if( produtoSelecionado == null){
+             mostrarAlerta("Selecione um produto para remover !");
+             return;
+         }
 
+         Alert confirmacao = new Alert(Alert.AlertType.CONFIRMATION, "Remover o produto "+ produtoSelecionado.getNome() + " do estoque? ");
+         confirmacao.setHeaderText(null);
+         ButtonType btnSim = new ButtonType("Sim");
+         ButtonType btnNao = new ButtonType("Não");
+         confirmacao.getButtonTypes().setAll(btnSim, btnNao);
+         confirmacao.showAndWait().ifPresent( botao -> {
+             if ( botao == btnSim){
+                 dadosEstoque.remover(produtoSelecionado);
+             }
+         });
     }
 
 
     @FXML
     protected void  aoVoltarMenu(ActionEvent event) throws IOException {
-        GerenciadorTela.getIntancia().trocarTela(event, "menu.fxml", "Sistema de Estoque - Menu");
+        GerenciadorTela.getInstancia().trocarTela(event, "menu.fxml", "Sistema de Estoque - Menu");
     }
 
 }

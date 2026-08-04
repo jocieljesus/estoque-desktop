@@ -28,6 +28,9 @@ public class ProdutoController {
     @FXML
     private Button botaoSalvar;
 
+    @FXML
+    private Button botaoCancelar;
+
     private final EstoqueDAO dadosEstoque = EstoqueDAO.getInstancia();
 
     private Produto produtoEmEdicao;
@@ -39,6 +42,8 @@ public class ProdutoController {
         campoQuantidade.setText(String.valueOf(produto.getQuantidade()));
         campoPreco.setText(String.valueOf(produto.getPreco()));
         botaoSalvar.setText("Salvar Alterações");
+        botaoCancelar.setText("Cancelar Alterações");
+
     }
 
     @FXML
@@ -83,13 +88,13 @@ public class ProdutoController {
         Alert confirmacao = new Alert(Alert.AlertType.INFORMATION, mensagem );
         confirmacao.setHeaderText(null);
         confirmacao.showAndWait();
-        GerenciadorTela.getIntancia().trocarTela(event, "estoque.fxml", "Sistema de Estoque - Estoque");
+        GerenciadorTela.getInstancia().trocarTela(event, "estoque.fxml", "Sistema de Estoque - Estoque");
     }
 
 
     @FXML
     protected  void cancelar(ActionEvent event) throws IOException {
-        GerenciadorTela.getIntancia().trocarTela(event, "menu.fxml", "Sistema de Estoque - Menu");
+        GerenciadorTela.getInstancia().trocarTela(event, "menu.fxml", "Sistema de Estoque - Menu");
     }
 
 }

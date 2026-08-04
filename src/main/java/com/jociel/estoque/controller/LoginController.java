@@ -35,7 +35,7 @@ public class LoginController {
         if ( usuariosCadastrados.containsKey(usuarioDigitado) && usuariosCadastrados.get(usuarioDigitado).equals(senhaDigitada) ){
 
 
-            GerenciadorTela.getIntancia().trocarTela(event, "menu.fxml", "Sistema Estoque - Menu");
+            GerenciadorTela.getInstancia().trocarTela(event, "menu.fxml", "Sistema Estoque - Menu");
 
         } else {
             erroDados.setVisible(true);
