@@ -1,10 +1,12 @@
 package com.jociel.estoque.util;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -25,7 +27,7 @@ public class GerenciadorTela {
     }
 
 
-    public void trocarTela(ActionEvent event, String telaFXML, String titulo) throws IOException {
+    public void trocarTela(Event event, String telaFXML, String titulo) throws IOException {
 
         FXMLLoader  fxmlLoader = new FXMLLoader(getClass().getResource("/com/jociel/estoque/"+telaFXML));
         Scene scene = new Scene(fxmlLoader.load());
