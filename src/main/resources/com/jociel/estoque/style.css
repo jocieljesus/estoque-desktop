@@ -24,6 +24,7 @@
     -fx-background-color : #4b793f;
     -fx-background-radius :  10;
     -fx-text-fill: #efffd6;
+    -fx-font-size: 16;
 
 
 }
@@ -64,4 +65,34 @@
     -fx-text-fill: #4b793f;
     -fx-font-family: "Roboto Condensed";
     -fx-opacity: 0.5;
+}
+
+
+.titulo-recuperacao{
+    -fx-text-fill: #4b793f;
+    -fx-font-size: 22;
+    -fx-font-weight: 700;
+
+}
+
+.texto-erro{
+    -fx-text-fill: rgb(198,3,3);
+    -fx-font-size: 14;
+    -fx-font-style: italic;
+}
+
+.texto-email-recuperacao{
+    -fx-text-fill: #4b793f;
+    -fx-font-family: "Roboto Condensed";
+    -fx-opacity: 0.7;
+    -fx-font-size: 15;
+
+}
+
+.codigo-gerado{
+    -fx-text-fill : #efffd6;
+}
+
+.codigo-gerado:hover{
+    -fx-text-fill : #99bc8b;
 }

@@ -38,6 +38,7 @@ public class CadastroController {
 
     @FXML
     protected  void aoConfirmarCadastro(ActionEvent event) throws IOException {
+
         String usuario =  usuarioCadastrar.getText();
         if(usuario.isBlank()){
             usuarioInvalido.setVisible(true);
@@ -55,7 +56,6 @@ public class CadastroController {
             erroSenha.setVisible(true);
             return;
         }
-
         Usuario novoUsuario =  new Usuario(usuario, senha);
         dbUsuario.cadastrarUsuario(novoUsuario);
 
