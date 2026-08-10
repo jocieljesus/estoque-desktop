@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.text.NumberFormat;
 import java.util.Locale;
 
@@ -20,12 +21,15 @@ public class RelatorioController {
     @FXML
     private Label labelBaixoEstoque;
 
-    private final EstoqueDAO estoqueDAO = EstoqueDAO.getInstance();
+    private final EstoqueDAO estoqueDAO = new EstoqueDAO();
+
+    public RelatorioController() throws SQLException {
+    }
 
     @FXML
-    public void initialize(){
+    public void initialize() {
         NumberFormat formatoMoeda = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
-        int totalProdutos =  estoqueDAO.getListaProdutos().size();
+        int totalProdutos = estoqueDAO.getListaProdutos().size();
         double valorTotal = estoqueDAO.calcularValorTotalEstoque();
         long baixoEstoque = estoqueDAO.contarProdutosBaixoEstoque(10);
 

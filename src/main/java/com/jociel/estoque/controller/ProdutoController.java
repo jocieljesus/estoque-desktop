@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 
 public class ProdutoController {
@@ -24,9 +25,12 @@ public class ProdutoController {
     @FXML
     private Button botaoSalvar;
 
-    private final EstoqueDAO estoqueDAO = EstoqueDAO.getInstance();
+    private final EstoqueDAO estoqueDAO = new EstoqueDAO();
 
     private Produto produtoEmEdicao;
+
+    public ProdutoController() throws SQLException {
+    }
 
     public void preencherParaEdicao(Produto produto) {
         this.produtoEmEdicao = produto;
@@ -38,7 +42,7 @@ public class ProdutoController {
     }
 
     @FXML
-    private void salvar(ActionEvent event) throws IOException {
+    private void salvar(ActionEvent event) throws IOException, SQLException {
         String nome = campoNome.getText();
         String categoria = campoCategoria.getText();
 

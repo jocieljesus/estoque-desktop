@@ -3,6 +3,8 @@ package com.jociel.estoque.controller;
 import com.jociel.estoque.model.EstoqueDAO;
 import com.jociel.estoque.model.Produto;
 import com.jociel.estoque.util.SceneManager;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,6 +12,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class EstoqueController {
 
@@ -28,8 +31,12 @@ public class EstoqueController {
     @FXML
     private TextField campoBusca;
 
-    private final EstoqueDAO estoqueDao = EstoqueDAO.getInstance();
+    private final EstoqueDAO estoqueDao = new EstoqueDAO();
+    ObservableList<Produto> produtoObservableList = FXCollections.observableArrayList(estoqueDao.getListaProdutos());
     private FilteredList<Produto> listaFiltrada;
+
+    public EstoqueController() throws SQLException {
+    }
 
     @FXML
     public void initialize() {
@@ -41,7 +48,7 @@ public class EstoqueController {
         colunaQuantidade.setCellValueFactory(new PropertyValueFactory<>("quantidade"));
         colunaPreco.setCellValueFactory(new PropertyValueFactory<>("preco"));
 
-        listaFiltrada = new FilteredList<>(estoqueDao.getListaProdutos(), p -> true);
+        listaFiltrada = new FilteredList<>(produtoObservableList, p -> true);
         tabelaProdutos.setItems(listaFiltrada);
 
         campoBusca.textProperty().addListener((obs, textoAntigo, textoNovo) -> {
