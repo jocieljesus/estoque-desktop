@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<VBox alignment="CENTER" prefHeight="300.0" prefWidth="400.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CONTROLLER_NAME">
+<VBox alignment="CENTER" prefHeight="300.0" prefWidth="400.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jociel.estoque.controller.EnviarEmailController">
    <children>
       <Label styleClass="titulo-recuperacao" text="Recuperação de Senha" />
       <Label alignment="CENTER" layoutX="100.0" layoutY="127.0" prefHeight="42.0" prefWidth="361.0" styleClass="texto-email-recuperacao" text="Informe seu email para receber o código de verificaçao" textAlignment="CENTER" wrapText="true">
@@ -16,7 +16,7 @@
             <Font size="10.0" />
          </font>
       </Label>
-      <TextField fx:id="emailRecuperacao" prefHeight="37.0" prefWidth="340.0" promptText="Email de recuperação">
+      <TextField fx:id="emailRecuperacao" onAction="#aoValidarEmail" prefHeight="37.0" prefWidth="340.0" promptText="Email de recuperação">
          <font>
             <Font size="18.0" />
          </font>

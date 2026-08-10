@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="300.0" prefWidth="400.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CONTROLLER_NAME">
+<VBox alignment="CENTER" prefHeight="300.0" prefWidth="400.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jociel.estoque.controller.CodigoConfirmacaoController">
    <children>
       <Label styleClass="titulo-recuperacao" text="Recuperação de Senha" />
       <Label fx:id="codigoRecuperacao" alignment="CENTER" layoutX="40.0" layoutY="94.0" prefHeight="26.0" prefWidth="141.0" styleClass="codigo-gerado" text="000000" textAlignment="CENTER" textFill="#efffd6" wrapText="true">
@@ -20,7 +20,7 @@
             <Font size="10.0" />
          </font>
       </Label>
-      <TextField fx:id="codigoInformado" alignment="CENTER" prefHeight="46.0" prefWidth="340.0" promptText="000000">
+      <TextField fx:id="codigoInformado" alignment="CENTER" onAction="#aoValidarCodigo" prefHeight="46.0" prefWidth="340.0" promptText="000000">
          <font>
             <Font size="18.0" />
          </font>

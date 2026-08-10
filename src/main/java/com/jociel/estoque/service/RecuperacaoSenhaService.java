@@ -8,9 +8,12 @@ import java.util.Random;
 
 public class RecuperacaoSenhaService {
 
+    public static  RecuperacaoSenhaService instancia;
     private Usuario usuarioAlvo;
 
     private  String codigoGerado;
+
+    public  RecuperacaoSenhaService(){}
 
     public String solicitarRecuperacao(String email, UsuarioDAO baseUsuario){
 

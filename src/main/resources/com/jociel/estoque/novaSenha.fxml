@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="300.0" prefWidth="400.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CONTROLLER_NAME">
+<VBox alignment="CENTER" prefHeight="300.0" prefWidth="400.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jociel.estoque.controller.NovaSenhaController">
    <children>
       <Label styleClass="titulo-recuperacao" text="Recuperação de Senha" />
       <PasswordField fx:id="novaSenha" prefHeight="37.0" prefWidth="340.0" promptText="Nova Senha">
@@ -18,7 +18,7 @@
             <Insets left="60.0" right="60.0" top="30.0" />
          </VBox.margin>
       </PasswordField>
-      <PasswordField fx:id="confirmaSenha" layoutX="100.0" layoutY="119.0" prefHeight="37.0" prefWidth="340.0" promptText="Confirma Senha">
+      <PasswordField fx:id="confirmaSenha" layoutX="100.0" layoutY="119.0" onAction="#aoConfirmarSenha" prefHeight="37.0" prefWidth="340.0" promptText="Confirma Senha">
          <font>
             <Font size="16.0" />
          </font>
