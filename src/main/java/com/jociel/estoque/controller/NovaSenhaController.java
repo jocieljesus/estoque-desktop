@@ -2,9 +2,11 @@ package com.jociel.estoque.controller;
 
 import com.jociel.estoque.service.RecuperacaoSenhaService;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
+
 
 public class NovaSenhaController {
 
@@ -17,9 +19,10 @@ public class NovaSenhaController {
     @FXML
     private Label senhasDiferentes;
 
-    private RecuperacaoSenhaService service ;
+    private RecuperacaoSenhaService service;
 
-    public void initData( RecuperacaoSenhaService service){
+
+    public void NovaSenha( RecuperacaoSenhaService service){
         this.service = service;
     }
 
@@ -39,6 +42,13 @@ public class NovaSenhaController {
         }
 
         service.redefinirSenha(novaSenhaText);
+        mostrarAlerta("Senha alterada com sucesso!");
         ((Stage) novaSenha.getScene().getWindow()).close();
+    }
+
+    public void mostrarAlerta( String mensagem){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, mensagem);
+        alert.setHeaderText(null);
+        alert.showAndWait();
     }
 }
