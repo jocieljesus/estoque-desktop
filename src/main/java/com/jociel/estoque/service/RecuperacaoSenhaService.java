@@ -7,7 +7,6 @@ import java.util.Optional;
 import java.util.Random;
 
 public class RecuperacaoSenhaService {
-
     public static  RecuperacaoSenhaService instancia;
     private Usuario usuarioAlvo;
 

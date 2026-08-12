@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -24,7 +25,7 @@
       <VBox.margin>
          <Insets bottom="20.0" />
       </VBox.margin></Label>
-   <TextField fx:id="usuario" prefHeight="44.0" prefWidth="535.0" promptText="Informe seu usuário" styleClass="campos-login">
+   <TextField fx:id="usuario" minHeight="44.0" prefHeight="60.0" prefWidth="516.0" promptText="Informe seu usuário" styleClass="campos-login">
       <VBox.margin>
          <Insets bottom="20.0" left="80.0" right="80.0" />
       </VBox.margin>
@@ -32,14 +33,28 @@
          <Font name="Gill Sans MT" size="16.0" />
       </font>
    </TextField>
-   <PasswordField fx:id="senha" onAction="#aoApertarBotao" prefHeight="44.0" prefWidth="460.0" promptText="Informe sua senha" styleClass="campos-login">
+   <StackPane prefHeight="150.0" prefWidth="200.0">
+      <children>
+         <PasswordField fx:id="senha" minHeight="44.0" onAction="#aoAcessarConta" prefHeight="44.0" prefWidth="460.0" promptText="Informe sua senha" styleClass="campos-login">
+            <font>
+               <Font name="Gill Sans MT" size="16.0" />
+            </font>
+         </PasswordField>
+         <TextField fx:id="senhaVisivel" minHeight="44.0" prefHeight="44.0" prefWidth="535.0" promptText="Informe sua senha " styleClass="campos-login" managed="false">
+            <font>
+               <Font name="Gill Sans MT" size="16.0" />
+            </font>
+         </TextField>
+         <FontIcon fx:id="iconeOlho" iconColor="#4b793f" iconLiteral="mdi2e-eye-off" iconSize="25" onMouseClicked="#aoVerSenha" StackPane.alignment="CENTER_RIGHT">
+            <StackPane.margin>
+               <Insets right="10.0" />
+            </StackPane.margin>
+         </FontIcon>
+      </children>
       <VBox.margin>
-         <Insets bottom="-10.0" left="80.0" right="80.0" />
+         <Insets left="80.0" right="80.0" />
       </VBox.margin>
-      <font>
-         <Font name="Gill Sans MT" size="16.0" />
-      </font>
-   </PasswordField>
+   </StackPane>
    <TextFlow fx:id="erroDados" prefHeight="43.0" prefWidth="360.0" textAlignment="CENTER" translateY="-8.0" visible="false">
       <VBox.margin>
          <Insets left="50.0" right="50.0" />
@@ -52,7 +67,7 @@
          </Text>
       </children>
    </TextFlow>
-    <Button fx:id="btnAcessar" cache="true" onAction="#aoApertarBotao" prefHeight="44.0" prefWidth="349.0" styleClass="botao" text="Acessar" VBox.vgrow="ALWAYS">
+    <Button fx:id="btnAcessar" cache="true" onAction="#aoAcessarConta" prefHeight="44.0" prefWidth="349.0" styleClass="botao" text="Acessar" VBox.vgrow="ALWAYS">
       <font>
          <Font name="Gill Sans MT" size="21.0" />
       </font>

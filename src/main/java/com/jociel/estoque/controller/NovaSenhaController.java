@@ -1,6 +1,7 @@
 package com.jociel.estoque.controller;
 
 import com.jociel.estoque.service.RecuperacaoSenhaService;
+import com.jociel.estoque.util.Constantes;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
@@ -31,11 +32,17 @@ public class NovaSenhaController {
         String novaSenhaText =  novaSenha.getText();
         String confirmaSenhaText = confirmaSenha.getText();
 
-        if( novaSenhaText.isBlank()){
+        if( novaSenhaText.isBlank() ) {
             senhasDiferentes.setText("A nova senha não pode ficar em branco");
             senhasDiferentes.setVisible(true);
             return;
         }
+        if (novaSenhaText.matches(Constantes.REGEX_SENHA.getValor())){
+            senhasDiferentes.setText("Sua nova senha precisa ser mais segura");
+            senhasDiferentes.setVisible(true);
+            return;
+        }
+
         if( !novaSenhaText.equals(confirmaSenhaText)){
             senhasDiferentes.setVisible(true);
             return;
