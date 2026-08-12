@@ -2,6 +2,7 @@ package com.jociel.estoque.controller;
 
 import com.jociel.estoque.model.Usuario;
 import com.jociel.estoque.model.UsuarioDAO;
+import com.jociel.estoque.util.Constantes;
 import com.jociel.estoque.util.GerenciadorTela;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -40,13 +41,15 @@ public class CadastroController {
     protected  void aoConfirmarCadastro(ActionEvent event) throws IOException {
 
         String usuario =  usuarioCadastrar.getText();
-        if(usuario.isBlank()){
+
+        if( usuario.isBlank() || !usuario.matches(Constantes.REGEX_EMAIL.getValor()) ){
             usuarioInvalido.setVisible(true);
             return;
         }
 
         String senha =  senhaCadastrar.getText();
-        if(senha.isBlank()){
+        if(senha.isBlank() || !senha.matches(Constantes.REGEX_SENHA.getValor())){
+            senhaInvalida.setText("Utilize uma senha mais segura");
             senhaInvalida.setVisible(true);
             return;
         }
