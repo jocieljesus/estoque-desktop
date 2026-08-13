@@ -87,7 +87,7 @@
       <VBox.margin>
          <Insets top="-40.0" />
       </VBox.margin></Button>
-   <Label fx:id="recuperaSenha" onMouseClicked="#aoEsquecerSenha" text="Esqueceu sua senha. Recupere aqui!" textFill="#4b793f" translateY="-10.0" underline="true">
+   <Label fx:id="recuperaSenha" onMouseClicked="#aoEsquecerSenha" text="Esqueceu sua senha. Recupere aqui!" textFill="#4b793f" translateY="-10.0"  styleClass="links">
       <font>
          <Font name="Gill Sans MT Italic" size="16.0" />
       </font>
@@ -95,7 +95,7 @@
          <Insets />
       </VBox.margin>
    </Label>
-   <Label fx:id="cadastroNovo" layoutX="251.0" layoutY="408.0" onMouseClicked="#aoCadastrar" text="Ainda não possui cadastro? Cadastre-se agora!" textFill="#4b793f" translateY="-20.0" underline="true">
+   <Label fx:id="cadastroNovo" layoutX="251.0" layoutY="408.0" onMouseClicked="#aoCadastrar" text="Ainda não possui cadastro? Cadastre-se agora!" textFill="#4b793f" translateY="-20.0"  styleClass="links">
       <font>
          <Font name="Gill Sans MT Italic" size="16.0" />
       </font>

@@ -106,10 +106,17 @@
     -fx-background-color: #860202FF;
 }
 
-.coluna {
+.table .column-header{
     -fx-background-color: #91d585;
     -fx-text-fill: #99bc8b;
 
     -fx-background-radius: 20 0 20 0;
 
+}
+
+.links:hover{
+    -fx-text-fill: #777CD9;
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    -fx-cursor: hand;
 }

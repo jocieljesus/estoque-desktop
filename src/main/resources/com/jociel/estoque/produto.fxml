@@ -13,7 +13,7 @@
    <top>
       <VBox prefHeight="77.0" prefWidth="700.0" styleClass="root" BorderPane.alignment="CENTER">
          <children>
-            <Label styleClass="texto-principal" text="Dados do Produto">
+            <Label styleClass="texto-principal" text="Dados do Produto" fx:id="tituloProduto">
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin>

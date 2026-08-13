@@ -104,7 +104,7 @@
       <VBox.margin>
          <Insets top="-40.0" />
       </VBox.margin></Button>
-   <Label fx:id="acessaLogin" onMouseClicked="#aoAcessarLogin" text="Já possui uma conta? Acesse aqui!" textFill="#4b793f" underline="true">
+   <Label fx:id="acessaLogin" onMouseClicked="#aoAcessarLogin" text="Já possui uma conta? Acesse aqui!" textFill="#4b793f" underline="true" styleClass="links">
       <font>
          <Font name="Gill Sans MT Italic" size="16.0" />
       </font>
