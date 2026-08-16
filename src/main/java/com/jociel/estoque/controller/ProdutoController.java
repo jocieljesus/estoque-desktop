@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
@@ -31,6 +32,9 @@ public class ProdutoController {
     @FXML
     private Button botaoCancelar;
 
+    @FXML
+    private Label tituloProduto;
+
     private final EstoqueDAO dadosEstoque = EstoqueDAO.getInstancia();
 
     private Produto produtoEmEdicao;
@@ -43,6 +47,7 @@ public class ProdutoController {
         campoPreco.setText(String.valueOf(produto.getPreco()));
         botaoSalvar.setText("Salvar Alterações");
         botaoCancelar.setText("Cancelar Alterações");
+        tituloProduto.setText("Editar Produto Cadastrado");
 
     }
 

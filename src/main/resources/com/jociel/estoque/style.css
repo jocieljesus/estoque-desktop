@@ -18,6 +18,7 @@
     -fx-border-width: 2;
     -fx-text-fill: #4b793f;
     -fx-prompt-text-fill :  #99bc8b;
+    -fx-font-size: 20;
 }
 
 .botao{
@@ -95,4 +96,27 @@
 
 .codigo-gerado:hover{
     -fx-text-fill : #99bc8b;
+}
+
+.btn-prod{
+    -fx-background-color: #4b793f;
+}
+
+.btn-remover{
+    -fx-background-color: #860202FF;
+}
+
+.table .column-header{
+    -fx-background-color: #91d585;
+    -fx-text-fill: #99bc8b;
+
+    -fx-background-radius: 20 0 20 0;
+
+}
+
+.links:hover{
+    -fx-text-fill: #777CD9;
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    -fx-cursor: hand;
 }
