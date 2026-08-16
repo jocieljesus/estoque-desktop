@@ -39,7 +39,7 @@ public class ProdutoController {
 
     private Produto produtoEmEdicao;
 
-    public void preencherParaEdicao( Produto produto ){
+    public void preencherParaEdicao(Produto produto) {
         this.produtoEmEdicao = produto;
         campoNome.setText(produto.getNome());
         campoCategoria.setText(produto.getCategoria());
@@ -52,10 +52,10 @@ public class ProdutoController {
     }
 
     @FXML
-    protected void salvar(ActionEvent event) throws IOException{
+    protected void salvar(ActionEvent event) throws IOException {
         String nome = campoNome.getText();
         String categoria = campoCategoria.getText();
-        if( nome == null || nome.isBlank() || categoria == null || categoria.isBlank()){
+        if (nome == null || nome.isBlank() || categoria == null || categoria.isBlank()) {
             mostrarErro("Informe um nome e uma categoria válida!");
             return;
         }
@@ -64,12 +64,12 @@ public class ProdutoController {
         try {
             quantidade = Integer.parseInt(campoQuantidade.getText().trim());
             preco = Double.parseDouble(campoPreco.getText().trim().replace(",", "."));
-        } catch (NumberFormatException ex ){
+        } catch (NumberFormatException ex) {
             mostrarErro("Quantidade e preço precisam ser números válidos.");
             return;
         }
 
-        if(produtoEmEdicao == null){
+        if (produtoEmEdicao == null) {
             Produto produto = new Produto(0, nome, categoria, quantidade, preco);
             dadosEstoque.adicionar(produto);
             mostrarSucesso(event, "Produto inserido com sucesso!");
@@ -80,17 +80,16 @@ public class ProdutoController {
             produtoEmEdicao.setPreco(preco);
             mostrarSucesso(event, "Produto editado com sucesso!");
         }
-        dadosEstoque.listarProdutos().forEach(System.out::println);
     }
 
     private void mostrarErro(String mensagem) {
-        Alert alerta = new Alert( Alert.AlertType.WARNING, mensagem);
+        Alert alerta = new Alert(Alert.AlertType.WARNING, mensagem);
         alerta.setHeaderText(null);
         alerta.showAndWait();
     }
 
     private void mostrarSucesso(ActionEvent event, String mensagem) throws IOException {
-        Alert confirmacao = new Alert(Alert.AlertType.INFORMATION, mensagem );
+        Alert confirmacao = new Alert(Alert.AlertType.INFORMATION, mensagem);
         confirmacao.setHeaderText(null);
         confirmacao.showAndWait();
         GerenciadorTela.getInstancia().trocarTela(event, "estoque.fxml", "Sistema de Estoque - Estoque");
@@ -98,7 +97,7 @@ public class ProdutoController {
 
 
     @FXML
-    protected  void cancelar(ActionEvent event) throws IOException {
+    protected void cancelar(ActionEvent event) throws IOException {
         GerenciadorTela.getInstancia().trocarTela(event, "menu.fxml", "Sistema de Estoque - Menu");
     }
 
