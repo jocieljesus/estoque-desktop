@@ -3,6 +3,7 @@ package com.jociel.estoque.controller;
 import com.jociel.estoque.model.EstoqueDAO;
 import com.jociel.estoque.model.Produto;
 import com.jociel.estoque.util.GerenciadorTela;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
@@ -38,6 +39,7 @@ public class EstoqueController {
     private TableColumn colunaPreco;
 
     private final EstoqueDAO dadosEstoque = EstoqueDAO.getInstancia();
+    private final ObservableList<Produto> listaCompleta = FXCollections.observableArrayList();
     private FilteredList<Produto> listaFiltrada;
 
     @FXML
@@ -49,13 +51,19 @@ public class EstoqueController {
         colunaQuantidade.setCellValueFactory(new PropertyValueFactory<>("quantidade"));
         colunaPreco.setCellValueFactory(new PropertyValueFactory<>("preco"));
 
-        listaFiltrada = new FilteredList<>(dadosEstoque.listarProdutos(), p -> true);
+        listaFiltrada = new FilteredList<>(listaCompleta, p -> true);
         tabelaProdutos.setItems(listaFiltrada);
+
+        atualizarTabela();
 
         campoBusca.textProperty().addListener((obs, textoAntigo, textoNovo) -> {
             String filtro = textoNovo == null ? "" : textoNovo.toLowerCase();
             listaFiltrada.setPredicate(produto -> filtro.isEmpty() || produto.getNome().toLowerCase().contains(filtro) || produto.getCategoria().toLowerCase().contains(filtro) || String.valueOf(produto.getPreco()).contains(filtro));
         });
+    }
+
+    private void atualizarTabela() {
+        listaCompleta.setAll(dadosEstoque.listarProdutos());
     }
 
 
@@ -96,8 +104,8 @@ public class EstoqueController {
 
         List<Produto> listaProduto = new ArrayList<>(produtoSelecionado);
         String produtosExcluidos = "";
-        for (var p : listaProduto){
-            produtosExcluidos += p.getId() +" " + p.getCategoria()+"\n";
+        for (var p : listaProduto) {
+            produtosExcluidos += p.getId() + " " + p.getCategoria() + "\n";
         }
         Alert confirmacao = new Alert(Alert.AlertType.CONFIRMATION, "Remover o produto \n" + produtosExcluidos + "\ndo estoque? ");
         confirmacao.setHeaderText(null);
@@ -107,6 +115,8 @@ public class EstoqueController {
         confirmacao.showAndWait().ifPresent(botao -> {
             if (botao == btnSim) {
                 dadosEstoque.remover(listaProduto);
+
+                atualizarTabela();
             }
         });
     }
