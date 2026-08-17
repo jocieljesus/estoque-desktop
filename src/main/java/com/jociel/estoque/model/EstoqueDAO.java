@@ -35,8 +35,6 @@ public class EstoqueDAO {
 
     public void remover(List<Produto> listProdutos){
             produtosList.removeAll(listProdutos);
-
-
     }
 
 

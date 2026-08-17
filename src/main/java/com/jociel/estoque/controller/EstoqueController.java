@@ -96,8 +96,8 @@ public class EstoqueController {
 
         List<Produto> listaProduto = new ArrayList<>(produtoSelecionado);
         String produtosExcluidos = "";
-        for (var p : listaProduto){
-            produtosExcluidos += p.getId() +" " + p.getCategoria()+"\n";
+        for (Produto p : listaProduto){
+            produtosExcluidos += p.getId() +" " + p.getNome()+"\n";
         }
         Alert confirmacao = new Alert(Alert.AlertType.CONFIRMATION, "Remover o produto \n" + produtosExcluidos + "\ndo estoque? ");
         confirmacao.setHeaderText(null);
