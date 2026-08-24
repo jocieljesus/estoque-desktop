@@ -7,50 +7,56 @@ import java.util.Optional;
 import java.util.Random;
 
 public class RecuperacaoSenhaService {
-    public static  RecuperacaoSenhaService instancia;
+    public static RecuperacaoSenhaService instancia;
     private Usuario usuarioAlvo;
 
-    private  String codigoGerado;
+    private String codigoGerado;
+    private UsuarioDAO baseUsuario = new UsuarioDAO();
 
-    public  RecuperacaoSenhaService(){}
 
-    public String solicitarRecuperacao(String email, UsuarioDAO baseUsuario){
+    public RecuperacaoSenhaService() {
+
+    }
+
+    public String solicitarRecuperacao(String email) {
 
         Optional<Usuario> usuarioEncontrado = baseUsuario.buscarPorEmail(email);
-        if( usuarioEncontrado.isEmpty()) {
-            return  null;
+        if (usuarioEncontrado.isEmpty()) {
+            return null;
         }
 
-        this.codigoGerado =  gerarCodigo();
+        this.codigoGerado = gerarCodigo();
         this.usuarioAlvo = usuarioEncontrado.get();
 
         return this.codigoGerado;
     }
 
     private String gerarCodigo() {
-        int codigo = new Random().nextInt(900_000)+100_00;
+        int codigo = new Random().nextInt(900_000) + 100_000;
         return String.valueOf(codigo);
     }
 
-    public boolean validarCodigo( String codigoDigitado){
-        return  codigoGerado != null &&  usuarioAlvo != null && codigoGerado.equals(codigoDigitado);
+    public boolean validarCodigo(String codigoDigitado) {
+        return codigoGerado != null && usuarioAlvo != null && codigoGerado.equals(codigoDigitado);
     }
 
-    public boolean redefinirSenha( String novaSenha){
-        if( usuarioAlvo == null){
+    public boolean redefinirSenha(String novaSenha) {
+        if (usuarioAlvo == null) {
             return false;
         }
-        usuarioAlvo.setSenha(novaSenha);
+
+        baseUsuario.atualizaSenha(usuarioAlvo.getEmail(), novaSenha);
+
         encerrarFluxo();
         return true;
     }
 
-    public void encerrarFluxo(){
+    public void encerrarFluxo() {
         this.usuarioAlvo = null;
         this.codigoGerado = null;
     }
 
-    public  Usuario getUsuarioAlvo(){
+    public Usuario getUsuarioAlvo() {
         return usuarioAlvo;
     }
 

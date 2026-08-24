@@ -35,7 +35,7 @@ public class ProdutoController {
     @FXML
     private Label tituloProduto;
 
-    private final EstoqueDAO dadosEstoque = EstoqueDAO.getInstancia();
+    private final EstoqueDAO dadosEstoque = new EstoqueDAO();
 
     private Produto produtoEmEdicao;
 
@@ -78,6 +78,7 @@ public class ProdutoController {
             produtoEmEdicao.setCategoria(categoria);
             produtoEmEdicao.setQuantidade(quantidade);
             produtoEmEdicao.setPreco(preco);
+            dadosEstoque.atualizar(produtoEmEdicao);
             mostrarSucesso(event, "Produto editado com sucesso!");
         }
     }

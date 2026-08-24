@@ -23,27 +23,27 @@ public class NovaSenhaController {
     private RecuperacaoSenhaService service;
 
 
-    public void NovaSenha( RecuperacaoSenhaService service){
+    public void NovaSenha(RecuperacaoSenhaService service) {
         this.service = service;
     }
 
     @FXML
-    protected  void aoConfirmarSenha(){
-        String novaSenhaText =  novaSenha.getText();
+    protected void aoConfirmarSenha() {
+        String novaSenhaText = novaSenha.getText();
         String confirmaSenhaText = confirmaSenha.getText();
 
-        if( novaSenhaText.isBlank() ) {
+        if (novaSenhaText.isBlank()) {
             senhasDiferentes.setText("A nova senha não pode ficar em branco");
             senhasDiferentes.setVisible(true);
             return;
         }
-        if (novaSenhaText.matches(Constantes.REGEX_SENHA.getValor())){
+        if (!novaSenhaText.matches(Constantes.REGEX_SENHA.getValor())) {
             senhasDiferentes.setText("Sua nova senha precisa ser mais segura");
             senhasDiferentes.setVisible(true);
             return;
         }
 
-        if( !novaSenhaText.equals(confirmaSenhaText)){
+        if (!novaSenhaText.equals(confirmaSenhaText)) {
             senhasDiferentes.setVisible(true);
             return;
         }
@@ -53,7 +53,7 @@ public class NovaSenhaController {
         ((Stage) novaSenha.getScene().getWindow()).close();
     }
 
-    public void mostrarAlerta( String mensagem){
+    public void mostrarAlerta(String mensagem) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION, mensagem);
         alert.setHeaderText(null);
         alert.showAndWait();

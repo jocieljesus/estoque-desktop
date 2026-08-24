@@ -2,11 +2,8 @@ package com.jociel.estoque.controller;
 
 import com.jociel.estoque.model.UsuarioDAO;
 import com.jociel.estoque.service.RecuperacaoSenhaService;
-import com.jociel.estoque.util.GerenciadorTela;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -25,13 +22,13 @@ public class EnviarEmailController {
 
 
     private final RecuperacaoSenhaService service = new RecuperacaoSenhaService();
-    private final UsuarioDAO baseUsuario = UsuarioDAO.getInstancia();
+    private final UsuarioDAO baseUsuario = new UsuarioDAO();
 
     @FXML
     protected void aoValidarEmail() throws IOException {
         String email = emailRecuperacao.getText().trim();
 
-        String codigo = service.solicitarRecuperacao(email, baseUsuario);
+        String codigo = service.solicitarRecuperacao(email);
 
         if (codigo == null) {
             emailNaoCadastrado.setVisible(true);

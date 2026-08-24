@@ -10,7 +10,6 @@ import java.util.List;
 
 public class EstoqueDAO {
 
-    private static EstoqueDAO instancia;
     private final ObservableList<Produto> produtosList;
     private int idProduto = 1;
 
@@ -19,13 +18,6 @@ public class EstoqueDAO {
         this.produtosList = FXCollections.observableArrayList();
     }
 
-
-    public static EstoqueDAO getInstancia() {
-        if (instancia == null) {
-            instancia = new EstoqueDAO();
-        }
-        return instancia;
-    }
 
     public void adicionar(Produto produto) {
         String sql = "INSERT INTO produto (nome, categoria, quantidade, preco) VALUES (?,?,?,?)";
@@ -72,9 +64,10 @@ public class EstoqueDAO {
              PreparedStatement stmt = con.prepareStatement(sql)) {
 
             stmt.setString(1, produto.getNome());
-            stmt.setInt(2, produto.getQuantidade());
-            stmt.setDouble(3, produto.getPreco());
-            stmt.setInt(4, produto.getId());
+            stmt.setString(2, produto.getCategoria());
+            stmt.setInt(3, produto.getQuantidade());
+            stmt.setDouble(4, produto.getPreco());
+            stmt.setInt(5, produto.getId());
             stmt.executeUpdate();
 
         } catch (SQLException e) {
@@ -106,11 +99,11 @@ public class EstoqueDAO {
     }
 
     public double calcularValorTotalEstoque() {
-        return produtosList.stream().mapToDouble(Produto::getValorTotal).sum();
+        return listarProdutos().stream().mapToDouble(Produto::getValorTotal).sum();
     }
 
     public long calcularEstoqueBaixo(int limite) {
-        return produtosList.stream().filter(p -> p.getQuantidade() < limite).count();
+        return listarProdutos().stream().filter(p -> p.getQuantidade() < limite).count();
 
     }
 

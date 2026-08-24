@@ -43,6 +43,7 @@ public class CodigoConfirmacaoController {
         Parent root = fxmlLoader.load();
 
         NovaSenhaController controller = fxmlLoader.getController();
+
         controller.NovaSenha(service);
 
         Scene scene = new Scene(root);

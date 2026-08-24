@@ -30,43 +30,43 @@ public class CadastroController {
     private Label usuarioInvalido;
 
     @FXML
-    private  Label senhaInvalida;
+    private Label senhaInvalida;
 
     @FXML
     private TextFlow erroSenha;
 
-    private static UsuarioDAO dbUsuario = UsuarioDAO.getInstancia();
+    private static UsuarioDAO dbUsuario = new UsuarioDAO();
 
     @FXML
-    protected  void aoConfirmarCadastro(ActionEvent event) throws IOException {
+    protected void aoConfirmarCadastro(ActionEvent event) throws IOException {
 
-        String usuario =  usuarioCadastrar.getText();
+        String usuario = usuarioCadastrar.getText();
 
-        if( usuario.isBlank() || !usuario.matches(Constantes.REGEX_EMAIL.getValor()) ){
+        if (usuario.isBlank() || !usuario.matches(Constantes.REGEX_EMAIL.getValor())) {
             usuarioInvalido.setVisible(true);
             return;
         }
 
-        String senha =  senhaCadastrar.getText();
-        if(senha.isBlank() || !senha.matches(Constantes.REGEX_SENHA.getValor())){
+        String senha = senhaCadastrar.getText();
+        if (senha.isBlank() || !senha.matches(Constantes.REGEX_SENHA.getValor())) {
             senhaInvalida.setText("Utilize uma senha mais segura");
             senhaInvalida.setVisible(true);
             return;
         }
 
         String senhaConfirmacao = confirmaSenha.getText();
-        if(!senhaConfirmacao.equals(senha)){
+        if (!senhaConfirmacao.equals(senha)) {
             erroSenha.setVisible(true);
             return;
         }
-        Usuario novoUsuario =  new Usuario(usuario, senha);
+        Usuario novoUsuario = new Usuario(0, usuario, senha);
         dbUsuario.cadastrarUsuario(novoUsuario);
 
         GerenciadorTela.getInstancia().trocarTela(event, "login.fxml", "Sistema de Estoque - Login");
     }
 
     @FXML
-    protected void  aoAcessarLogin(MouseEvent event) throws IOException {
+    protected void aoAcessarLogin(MouseEvent event) throws IOException {
         GerenciadorTela.getInstancia().trocarTela(event, "login.fxml", "Sistema de Estoque - Login");
 
     }

@@ -1,6 +1,5 @@
 package com.jociel.estoque.controller;
 
-import com.jociel.estoque.model.Usuario;
 import com.jociel.estoque.model.UsuarioDAO;
 import com.jociel.estoque.util.GerenciadorTela;
 import javafx.event.ActionEvent;
@@ -14,9 +13,7 @@ import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import org.kordamp.ikonli.javafx.FontIcon;
 
-import javax.swing.*;
 import java.io.IOException;
-import java.util.Optional;
 
 public class LoginController {
     @FXML
@@ -36,10 +33,10 @@ public class LoginController {
 
     private boolean senhaVisivelAtiva = false;
 
-    private final UsuarioDAO bdUsuario =  UsuarioDAO.getInstancia();
+    private final UsuarioDAO bdUsuario = new UsuarioDAO();
 
     @FXML
-    public void initialize(){
+    public void initialize() {
         senhaVisivel.textProperty().bindBidirectional(senha.textProperty());
     }
 
@@ -50,9 +47,8 @@ public class LoginController {
         String usuarioDigitado = usuario.getText().toLowerCase();
         String senhaDigitada = senha.getText();
 
-        Optional<Usuario> usuarioEncontrado = bdUsuario.buscarPorEmail(usuarioDigitado);
 
-        if ( usuarioEncontrado.isPresent() && usuarioEncontrado.get().getSenha().equals(senhaDigitada)){
+        if (bdUsuario.autenticar(usuarioDigitado, senhaDigitada)) {
 
             GerenciadorTela.getInstancia().trocarTela(event, "menu.fxml", "Sistema de Estoque - Menu");
 
@@ -63,7 +59,7 @@ public class LoginController {
 
 
     @FXML
-    protected void aoVerSenha(){
+    protected void aoVerSenha() {
         senhaVisivelAtiva = !senhaVisivelAtiva;
 
         senha.setVisible(!senhaVisivelAtiva);
@@ -72,7 +68,7 @@ public class LoginController {
         senhaVisivel.setVisible(senhaVisivelAtiva);
         senhaVisivel.setManaged(senhaVisivelAtiva);
 
-        iconeOlho.setIconLiteral(senhaVisivelAtiva ?  "mdi2e-eye" : "mdi2e-eye-off");
+        iconeOlho.setIconLiteral(senhaVisivelAtiva ? "mdi2e-eye" : "mdi2e-eye-off");
     }
 
 
@@ -83,7 +79,7 @@ public class LoginController {
 
 
     @FXML
-    protected  void aoEsquecerSenha() throws IOException {
+    protected void aoEsquecerSenha() throws IOException {
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/jociel/estoque/enviaEmail.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
@@ -92,7 +88,6 @@ public class LoginController {
         stage.setTitle("Sistema de Estoque - Esqueceu a senha");
         stage.show();
     }
-
 
 
 }

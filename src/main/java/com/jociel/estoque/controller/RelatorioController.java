@@ -21,10 +21,10 @@ public class RelatorioController {
     @FXML
     private Label lblEstoqueBaixo;
 
-    private final EstoqueDAO dadosEstoque = EstoqueDAO.getInstancia();
+    private final EstoqueDAO dadosEstoque = new EstoqueDAO();
 
     @FXML
-    public  void initialize(){
+    public void initialize() {
 
         NumberFormat formatoMoeda = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
 
@@ -46,10 +46,6 @@ public class RelatorioController {
 
 
     }
-
-
-
-
 
 
     @FXML
