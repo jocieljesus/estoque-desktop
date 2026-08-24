@@ -4,6 +4,7 @@ module com.jociel.estoque {
     requires java.desktop;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.ikonli.materialdesign2;
+    requires java.sql;
 
 
     opens com.jociel.estoque to javafx.fxml;

@@ -35,7 +35,7 @@ public class ProdutoController {
     @FXML
     private Label tituloProduto;
 
-    private final EstoqueDAO dadosEstoque = EstoqueDAO.getInstancia();
+    private final EstoqueDAO dadosEstoque = new EstoqueDAO();
 
     private Produto produtoEmEdicao;
 
