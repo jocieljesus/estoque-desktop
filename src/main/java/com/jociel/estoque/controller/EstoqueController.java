@@ -3,6 +3,7 @@ package com.jociel.estoque.controller;
 import com.jociel.estoque.model.EstoqueDAO;
 import com.jociel.estoque.model.Produto;
 import com.jociel.estoque.util.GerenciadorTela;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
@@ -11,6 +12,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,9 +41,10 @@ public class EstoqueController {
 
     private final EstoqueDAO dadosEstoque = new EstoqueDAO();
     private FilteredList<Produto> listaFiltrada;
+    private final ObservableList<Produto> listaCompleta = FXCollections.observableArrayList();
 
     @FXML
-    public void initialize() {
+    public void initialize() throws SQLException {
         tabelaProdutos.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         colunaId.setCellValueFactory(new PropertyValueFactory<>("id"));
         colunaNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
@@ -49,13 +52,22 @@ public class EstoqueController {
         colunaQuantidade.setCellValueFactory(new PropertyValueFactory<>("quantidade"));
         colunaPreco.setCellValueFactory(new PropertyValueFactory<>("preco"));
 
-        listaFiltrada = new FilteredList<>(dadosEstoque.listarProdutos(), p -> true);
+        listaFiltrada = new FilteredList<>(listaCompleta, p -> true);
         tabelaProdutos.setItems(listaFiltrada);
+
+        atualizarTabela();
 
         campoBusca.textProperty().addListener((obs, textoAntigo, textoNovo) -> {
             String filtro = textoNovo == null ? "" : textoNovo.toLowerCase();
             listaFiltrada.setPredicate(produto -> filtro.isEmpty() || produto.getNome().toLowerCase().contains(filtro) || produto.getCategoria().toLowerCase().contains(filtro) || String.valueOf(produto.getPreco()).contains(filtro));
         });
+    }
+    private void atualizarTabela() {
+        try {
+            listaCompleta.setAll(dadosEstoque.listarProdutos());
+        } catch (SQLException ex){
+            ex.printStackTrace();
+        }
     }
 
 
@@ -107,6 +119,7 @@ public class EstoqueController {
         confirmacao.showAndWait().ifPresent(botao -> {
             if (botao == btnSim) {
                 dadosEstoque.remover(listaProduto);
+                atualizarTabela();
             }
         });
     }

@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class ProdutoController {
 
@@ -52,7 +53,7 @@ public class ProdutoController {
     }
 
     @FXML
-    protected void salvar(ActionEvent event) throws IOException{
+    protected void salvar(ActionEvent event) throws IOException, SQLException {
         String nome = campoNome.getText();
         String categoria = campoCategoria.getText();
         if( nome == null || nome.isBlank() || categoria == null || categoria.isBlank()){
@@ -78,9 +79,10 @@ public class ProdutoController {
             produtoEmEdicao.setCategoria(categoria);
             produtoEmEdicao.setQuantidade(quantidade);
             produtoEmEdicao.setPreco(preco);
+            dadosEstoque.atualizarProduto(produtoEmEdicao);
             mostrarSucesso(event, "Produto editado com sucesso!");
         }
-        dadosEstoque.listarProdutos().forEach(System.out::println);
+
     }
 
     private void mostrarErro(String mensagem) {
