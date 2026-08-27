@@ -2,21 +2,23 @@ package com.jociel.estoque.service;
 
 import com.jociel.estoque.model.Usuario;
 import com.jociel.estoque.model.UsuarioDAO;
+import org.mindrot.jbcrypt.BCrypt;
 
+import java.util.Objects;
 import java.util.Optional;
 import java.util.Random;
 
 public class RecuperacaoSenhaService {
-    public static  RecuperacaoSenhaService instancia;
     private Usuario usuarioAlvo;
 
     private  String codigoGerado;
+    private UsuarioDAO usuarioDAO = new UsuarioDAO();
 
     public  RecuperacaoSenhaService(){}
 
-    public String solicitarRecuperacao(String email, UsuarioDAO baseUsuario){
+    public String solicitarRecuperacao(String email){
 
-        Optional<Usuario> usuarioEncontrado = baseUsuario.buscarPorEmail(email);
+        Optional<Usuario> usuarioEncontrado = usuarioDAO.buscarPorEmail(email);
         if( usuarioEncontrado.isEmpty()) {
             return  null;
         }
@@ -28,7 +30,7 @@ public class RecuperacaoSenhaService {
     }
 
     private String gerarCodigo() {
-        int codigo = new Random().nextInt(900_000)+100_00;
+        int codigo = new Random().nextInt(900_000)+100_000;
         return String.valueOf(codigo);
     }
 
@@ -40,9 +42,19 @@ public class RecuperacaoSenhaService {
         if( usuarioAlvo == null){
             return false;
         }
-        usuarioAlvo.setSenha(novaSenha);
+        usuarioDAO.atualizarSenha(usuarioAlvo.getId(), novaSenha);
         encerrarFluxo();
         return true;
+    }
+
+    public boolean verificarSenhaAntiga(String novaSenha){
+        if( usuarioAlvo == null){
+            return  false;
+        }
+
+        String senhaCriptografada = BCrypt.hashpw(novaSenha, BCrypt.gensalt());
+
+        return  BCrypt.checkpw(senhaCriptografada, usuarioAlvo.getSenha());
     }
 
     public void encerrarFluxo(){
@@ -50,8 +62,5 @@ public class RecuperacaoSenhaService {
         this.codigoGerado = null;
     }
 
-    public  Usuario getUsuarioAlvo(){
-        return usuarioAlvo;
-    }
 
 }

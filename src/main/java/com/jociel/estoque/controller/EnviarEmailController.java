@@ -22,13 +22,12 @@ public class EnviarEmailController {
 
 
     private final RecuperacaoSenhaService service = new RecuperacaoSenhaService();
-    private final UsuarioDAO baseUsuario = UsuarioDAO.getInstancia();
 
     @FXML
     protected void aoValidarEmail() throws IOException {
         String email = emailRecuperacao.getText().trim();
 
-        String codigo = service.solicitarRecuperacao(email, baseUsuario);
+        String codigo = service.solicitarRecuperacao(email);
 
         if (codigo == null) {
             emailNaoCadastrado.setVisible(true);

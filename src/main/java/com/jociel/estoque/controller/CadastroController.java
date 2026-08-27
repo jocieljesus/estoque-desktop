@@ -35,8 +35,7 @@ public class CadastroController {
     @FXML
     private TextFlow erroSenha;
 
-    private static UsuarioDAO dbUsuario = UsuarioDAO.getInstancia();
-
+    private static UsuarioDAO dbUsuario = new UsuarioDAO();
     @FXML
     protected  void aoConfirmarCadastro(ActionEvent event) throws IOException {
 

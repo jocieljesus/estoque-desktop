@@ -36,7 +36,7 @@ public class LoginController {
 
     private boolean senhaVisivelAtiva = false;
 
-    private final UsuarioDAO bdUsuario =  UsuarioDAO.getInstancia();
+    private final UsuarioDAO bdUsuario =  new UsuarioDAO();
 
     @FXML
     public void initialize(){
@@ -50,10 +50,9 @@ public class LoginController {
         String usuarioDigitado = usuario.getText().toLowerCase();
         String senhaDigitada = senha.getText();
 
-        Optional<Usuario> usuarioEncontrado = bdUsuario.buscarPorEmail(usuarioDigitado);
+        boolean loginValidado = bdUsuario.validarLogin(usuarioDigitado, senhaDigitada);
 
-        if ( usuarioEncontrado.isPresent() && usuarioEncontrado.get().getSenha().equals(senhaDigitada)){
-
+        if (loginValidado){
             GerenciadorTela.getInstancia().trocarTela(event, "menu.fxml", "Sistema de Estoque - Menu");
 
         } else {
