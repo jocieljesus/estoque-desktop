@@ -33,6 +33,8 @@ public class CodigoConfirmacaoController {
 
     @FXML
     protected  void aoValidarCodigo() throws IOException {
+        codigoInvalido.setVisible(false);
+
         String codigo = codigoInformado.getText();
         if(!service.validarCodigo(codigo)){
             codigoInvalido.setVisible(true);

@@ -29,6 +29,7 @@ public class NovaSenhaController {
 
     @FXML
     protected  void aoConfirmarSenha(){
+        senhasDiferentes.setVisible(false);
         String novaSenhaText =  novaSenha.getText();
         String confirmaSenhaText = confirmaSenha.getText();
 

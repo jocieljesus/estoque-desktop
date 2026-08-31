@@ -52,10 +52,9 @@ public class RecuperacaoSenhaService {
             return  false;
         }
 
-        String senhaCriptografada = BCrypt.hashpw(novaSenha, BCrypt.gensalt());
-
-        return  BCrypt.checkpw(senhaCriptografada, usuarioAlvo.getSenha());
+        return  BCrypt.checkpw(novaSenha, usuarioAlvo.getSenha());
     }
+
 
     public void encerrarFluxo(){
         this.usuarioAlvo = null;

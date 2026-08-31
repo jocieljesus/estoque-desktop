@@ -68,7 +68,7 @@
          <Insets left="80.0" right="80.0" />
       </VBox.margin>
    </StackPane>
-   <TextFlow fx:id="erroDados" prefHeight="45.0" prefWidth="576.0" textAlignment="CENTER" translateY="-30.0" visible="false">
+   <TextFlow fx:id="erroDados" prefHeight="45.0" prefWidth="576.0" textAlignment="CENTER" translateY="-18.0" visible="false">
       <VBox.margin>
          <Insets left="50.0" right="50.0" />
       </VBox.margin>

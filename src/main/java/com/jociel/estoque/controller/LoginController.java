@@ -46,6 +46,7 @@ public class LoginController {
 
     @FXML
     protected void aoAcessarConta(ActionEvent event) throws IOException {
+        erroDados.setVisible(false);
 
         String usuarioDigitado = usuario.getText().toLowerCase();
         String senhaDigitada = senha.getText();

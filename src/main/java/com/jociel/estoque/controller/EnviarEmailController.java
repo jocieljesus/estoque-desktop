@@ -25,6 +25,7 @@ public class EnviarEmailController {
 
     @FXML
     protected void aoValidarEmail() throws IOException {
+        emailNaoCadastrado.setVisible(false);
         String email = emailRecuperacao.getText().trim();
 
         String codigo = service.solicitarRecuperacao(email);

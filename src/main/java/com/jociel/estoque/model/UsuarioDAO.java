@@ -13,19 +13,14 @@ import java.util.Set;
 
 public class UsuarioDAO {
 
-    private Set<Usuario> bdUsuarios;
-
     public UsuarioDAO(){
-        bdUsuarios = new HashSet<>();
     }
 
     public boolean validarLogin(String email, String senha){
 
         Optional<Usuario> usuarioEncontrado = buscarPorEmail(email);
 
-        if( usuarioEncontrado.isEmpty()){
-            return false;
-        }
+        if(usuarioEncontrado.isEmpty()) return false;
 
         return BCrypt.checkpw(senha, usuarioEncontrado.get().getSenha());
     }
